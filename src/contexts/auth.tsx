@@ -32,7 +32,6 @@ export const AuthProvider = ({children}) => {
         const response = await api.post('/login', {
             email, senha
         });
-
         setUsuario(response.data.usuario);
 
         await localStorage.setItem('@Reportify:usuario', JSON.stringify(response.data.usuario));

@@ -3,7 +3,7 @@ import AuthRoutes from "./Stack/auth.routes";
 import Routes from "./Stack/routes";
 import { useAuth } from '../contexts/auth';
 import AdminRoutes from "./Stack/admin.routes";
-import Loader from "../componenst/loader";
+import Loader from "../components/loader";
 import { Routes as Switch , BrowserRouter} from "react-router-dom";
 
 export default function () {

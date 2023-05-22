@@ -4,7 +4,7 @@ import { FaEyeSlash, FaEye } from 'react-icons/fa';
 import "../../styles/global.css";
 import "./style.css"
 import { useState } from "react";
-import Loader from "../../componenst/loader";
+import Loader from "../../components/loader";
 
 
 function Login() {
@@ -21,8 +21,7 @@ function Login() {
     setLoading(true);
     try {
       await signIn(email, senha);
-      // <Link to="/home" />
-      history.push("/home");
+      console.log(email+senha);
     } catch (response) {
       setErrorMessage(response.data.msg);
     }
@@ -45,15 +44,15 @@ function Login() {
         <div className="grid gap-11">
           <div>
             <input
-              className="bg-gray-200 p-2 pl-3 w-full outline-none shadow-md rounded-xl"
+              className="bg-gray-300 p-2 pl-3 w-full outline-none shadow-md rounded-xl"
               type="email"
               placeholder='user@email.com.br'
               onChange={texto => setEmail(texto)}
             />
           </div>
-          <div className="flex-row p-1 bg-gray-200 flex items-center  shadow-md rounded-xl justify-between">
+          <div className="flex-row p-1 bg-gray-300 flex items-center  shadow-md rounded-xl justify-between">
             <input
-              className="bg-gray-200 p-1 pl-3 outline-none w-4/5  rounded-xl"
+              className="bg-gray-300 p-1 pl-3 outline-none w-4/5  rounded-xl"
               type={hidepass ? "text" : "password"}
               placeholder="Senha"
               onChange={(texto => setSenha(texto))}
@@ -70,14 +69,14 @@ function Login() {
           </div>
           <div className="flex flex-row items-center justify-around">
             <div>
-              <button>
+              <button className="outline-none">
                 <p className="text-blue-800 text-center cursor-pointer" >Esqueci a senha</p>
               </button>
             </div>
             {
               !loading ?
 
-                (<button className="bg-blue-300 hover:bg-blue-400 hover:ring-blue-500  ring-offset-0 font-black  ring ring-blue-400  p-1 text-white text-xl w-3/6 rounded-xl cursor-pointer"
+                (<button className="bg-blue-300 hover:bg-blue-400 hover:ring-blue-500  ring-offset-0 font-black  ring ring-blue-400 outline-none  p-1 text-white text-xl w-3/6 rounded-xl cursor-pointer"
                   onClick={entrar}
                 >
                   Entrar

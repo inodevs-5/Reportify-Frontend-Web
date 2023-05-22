@@ -11,7 +11,7 @@ api.addResponseTransform(response => {
 })
 
 api.addAsyncRequestTransform(request => async() => {
-    const token = await localStorage.getItem('@Reportify:token');
+    const token = localStorage.getItem('@Reportify:token');
 
     if (token) {
         request.headers['Authorization'] = `Baerer ${token}`;
