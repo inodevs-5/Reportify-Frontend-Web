@@ -18,7 +18,7 @@ export const AuthProvider = ({children}) => {
 
     useEffect(() => {
         (async () => {
-            const storageUsuario = await localStorage.getItem('@Reportify:usuario');
+            const storageUsuario = await (localStorage.getItem('@Reportify:usuario') );
             const storageToken = await localStorage.getItem('@Reportify:token');
 
             if (storageUsuario && storageToken) {
