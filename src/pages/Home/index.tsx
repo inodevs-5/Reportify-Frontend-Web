@@ -7,7 +7,7 @@ import { FaComment, FaBell } from 'react-icons/fa';
 function Home() {
 
   return (
-    <div className="container w-full h-full">
+    <div className="flex flex-wrap flex-row">
       <Menu></Menu>
     </div>
   );

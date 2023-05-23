@@ -2,6 +2,7 @@ import Login from '../pages/Login';
 import Home from '../pages/Home'
 import {Routes , Route}  from "react-router-dom";
 import CadastroRo from '../pages/CadastroRo';
+import TabelaRo from '../pages/TabelaRO';
 
 
 export default function Routas() {
@@ -10,6 +11,7 @@ export default function Routas() {
         <Route path='/' element={<Login/>} />
         <Route path='/home' element={<Home/>}/>
         <Route path='/CadastroRo' element={<CadastroRo/>}/>
+        <Route path='/tabelaRo' element={<TabelaRo/>}/>
     </Routes>
         )
 }
