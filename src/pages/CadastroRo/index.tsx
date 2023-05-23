@@ -44,9 +44,9 @@ return(
     {/* {conteudo fica aqui} */}
     <div id="conteudo" className="mt-16  bg-white flex-1">
       <div className="p-10 flex items-center flex-col">
-        <h1 className="text-xl text-black font-semibold">
+      <h1 className="text-xl text-black  font-semibold">
           Novo Registro de Ocorrência
-        </h1>
+        </h1>    
         <div className="flex flex-col mt-4 w-3/4">
         <div className="flex mb-4">
       <label htmlFor="contrato" className="block text-gray-700 font-bold w-1/4">

@@ -27,10 +27,14 @@ const isopen = () => {
         </div>
         <div className="flex w-16 flex-row justify-between">
         <div>
+          <Link to="/contatos" >
         <FaComment className="text-white" size={24}/>
+          </Link>
         </div>
         <div className="flex items-center">
+        <Link to="/notificacao">
         <FaBell className="text-white"  size={24} />
+        </Link>
         <div className="absolute top-5 right-0 w-3 h-3 bg-red-500 rounded-full"></div>
         </div>
         </div>
@@ -48,19 +52,19 @@ const isopen = () => {
           <Link to="/tabelaRo" className="text-gray-400 p-4 hover:text-white">Registro de Ocorrência</Link>
         </li>
         <li className="py-3 rounded-xl text-center hover:bg-secondary  cursor-pointer mt-4 ring-1 ring-black-800 shadow-2xl">
-        <Link to="/" className="text-gray-400 hover:text-white  p-4">Membros do Suporte</Link>
+        <Link to="/membroSuporte" className="text-gray-400 hover:text-white  p-4 ">Membros do Suporte</Link>
         </li>
         <li className="py-3 rounded-xl text-center hover:bg-secondary  mt-4 ring-1 ring-black-300 shadow-2xl">
         <Link to="/CadastroRo" className="text-gray-400 p-4 hover:text-white">Novo Registro de Ocorrência</Link>
         </li>
         <li className="py-3 rounded-xl  text-center  mt-4 ring-1 hover:bg-secondary cursor-pointer ring-black-300 shadow-2xl">
-        <Link to="/" className="text-gray-400 p-4 hover:text-white">Cadastrar Novo Usuário</Link>
+        <Link to="/cadastroUsuarios" className="text-gray-400 p-4 hover:text-white">Cadastrar Novo Usuário</Link>
         </li>
         <li className="py-3 rounded-xl text-center  mt-4 ring-1 hover:bg-secondary cursor-pointer ring-black-300 shadow-2xl">
-        <Link to="/" className="text-gray-400 p-4 hover:text-white">Meus Chats</Link>
+        <Link to="/contatos" className="text-gray-400 p-4 hover:text-white px-16 ">Meus Chats</Link>
         </li>
         <li className="py-3 rounded-xl text-center  mt-4 ring-1 hover:bg-secondary cursor-pointer ring-black-300 shadow-2xl">
-        <Link to="/home" className="text-gray-400 p-4 w-full hover:text-white">Home</Link>
+        <Link to="/home" className="text-gray-400 p-4 w-full hover:text-white px-16 ">Home</Link>
         </li>
         <div className="absolute pb-3 w-10/12 bottom-0 flex ">
         <button className="bg-blue-800  m-auto flex ring-offset-0 font-medium ring ring-blue-900 
@@ -87,16 +91,16 @@ const isopen = () => {
           <Link to="/tabelaRo" className="text-gray-400 p-4 hover:text-white">Registro de Ocorrência</Link>
         </li>
         <li className="py-3 rounded-xl text-center hover:bg-secondary  cursor-pointer mt-4 ring-1 ring-black-800 shadow-2xl">
-        <Link to="/" className="text-gray-400 hover:text-white  p-4">Membros do Suporte</Link>
+        <Link to="/membroSuporte" className="text-gray-400 hover:text-white  p-4">Membros do Suporte</Link>
         </li>
         <li className="py-3 rounded-xl text-center hover:bg-secondary  mt-4 ring-1 ring-black-300 shadow-2xl">
         <Link to="/CadastroRo" className="text-gray-400 p-4 hover:text-white">Novo Registro de Ocorrência</Link>
         </li>
         <li className="py-3 rounded-xl  text-center  mt-4 ring-1 hover:bg-secondary cursor-pointer ring-black-300 shadow-2xl">
-        <Link to="/" className="text-gray-400 p-4 hover:text-white">Cadastrar Novo Usuário</Link>
+        <Link to="/cadastroUsuarios" className="text-gray-400 p-4 hover:text-white">Cadastrar Novo Usuário</Link>
         </li>
         <li className="py-3 rounded-xl text-center  mt-4 ring-1 hover:bg-secondary cursor-pointer ring-black-300 shadow-2xl">
-        <Link to="/" className="text-gray-400 p-4 hover:text-white">Meus Chats</Link>
+        <Link to="/contatos" className="text-gray-400 p-4 hover:text-white">Meus Chats</Link>
         </li>
         <li className="py-3 rounded-xl text-center  mt-4 ring-1 hover:bg-secondary cursor-pointer ring-black-300 shadow-2xl">
         <Link to="/home" className="text-gray-400 p-4 hover:text-white">Home</Link>

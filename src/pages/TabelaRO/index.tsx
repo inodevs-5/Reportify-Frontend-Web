@@ -7,8 +7,10 @@ function TabelaRo() {
       <Menu></Menu>
       <div id="conteudo" className="mt-16  bg-white flex-1 ">
         <div className="p-10 flex items-center flex-col">
-        <h1>Registro de Ocorrência</h1>
-
+        <h1 className="text-xl text-black  font-semibold">
+          Registro de Ocorrência
+          </h1>
+          <p></p>
         </div>
     </div>
     </div>
