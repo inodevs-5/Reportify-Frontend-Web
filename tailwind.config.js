@@ -5,7 +5,12 @@ export default {
     "./src/**/*.tsx",
   ],
   theme: {
-    extend: {},
+    backgroundColor: theme => ({
+     ...theme('colors'),
+     'primary': '#2B3467',
+     'secondary': '#26284c',
+     'danger': '#e3342f',
+    }),
   },
   plugins: [],
 }

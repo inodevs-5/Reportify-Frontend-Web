@@ -1,15 +1,14 @@
 import { Link } from "react-router-dom";
-import { useAuth } from "../../contexts/auth";
+// import { useAuth } from "../../contexts/auth";
 import { FaEyeSlash, FaEye } from 'react-icons/fa';
 import "../../styles/global.css";
-import "./style.css"
 import { useState } from "react";
 import Loader from "../../components/loader";
 
 
 function Login() {
 
-  const { signIn } = useAuth();
+  // const { signIn } = useAuth();
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [loading, setLoading] = useState(false);
@@ -18,14 +17,13 @@ function Login() {
 
 
   async function entrar() {
-    setLoading(true);
-    try {
-      await signIn(email, senha);
-      console.log(email+senha);
-    } catch (response) {
-      setErrorMessage(response.data.msg);
-    }
-    setLoading(false);
+    // setLoading(true);
+    // try {
+    //   await signIn(email, senha);
+    // } catch (response) {
+    //   setErrorMessage(response.data.msg);
+    // }
+    // setLoading(false);
   }
   // const Forgotpassaword = () =>{
   //     console.log("manda")
