@@ -45,7 +45,7 @@ const isopen = () => {
           <h1 className="text-3xl pl-2 text-white">Ola Fulano</h1>
         </li>
         <li className="py-3 rounded-xl text-center hover:bg-secondary cursor-pointer mt-3 ring-1 ring-black-300 shadow-2xl">
-          <Link to="/" className="text-gray-400 p-4 hover:text-white">Registro de Ocorrência</Link>
+          <Link to="/tabelaRo" className="text-gray-400 p-4 hover:text-white">Registro de Ocorrência</Link>
         </li>
         <li className="py-3 rounded-xl text-center hover:bg-secondary  cursor-pointer mt-4 ring-1 ring-black-800 shadow-2xl">
         <Link to="/" className="text-gray-400 hover:text-white  p-4">Membros do Suporte</Link>
@@ -60,7 +60,7 @@ const isopen = () => {
         <Link to="/" className="text-gray-400 p-4 hover:text-white">Meus Chats</Link>
         </li>
         <li className="py-3 rounded-xl text-center  mt-4 ring-1 hover:bg-secondary cursor-pointer ring-black-300 shadow-2xl">
-        <Link to="/home" className="text-gray-400 p-4 hover:text-white">Home</Link>
+        <Link to="/home" className="text-gray-400 p-4 w-full hover:text-white">Home</Link>
         </li>
         <div className="absolute pb-3 w-10/12 bottom-0 flex ">
         <button className="bg-blue-800  m-auto flex ring-offset-0 font-medium ring ring-blue-900 
@@ -84,7 +84,7 @@ const isopen = () => {
           <h1 className="text-3xl pl-2 text-white"></h1>
         </li>
         <li className="py-3 rounded-xl text-center hover:bg-secondary cursor-pointer mt-3 ring-1 ring-black-300 shadow-2xl">
-          <Link to="/" className="text-gray-400 p-4 hover:text-white">Registro de Ocorrência</Link>
+          <Link to="/tabelaRo" className="text-gray-400 p-4 hover:text-white">Registro de Ocorrência</Link>
         </li>
         <li className="py-3 rounded-xl text-center hover:bg-secondary  cursor-pointer mt-4 ring-1 ring-black-800 shadow-2xl">
         <Link to="/" className="text-gray-400 hover:text-white  p-4">Membros do Suporte</Link>

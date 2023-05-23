@@ -5,8 +5,11 @@ function TabelaRo() {
     return(
         <div className="flex flex-wrap flex-row">
       <Menu></Menu>
-      <div className="mt-16 bg-white flex-1 ">
+      <div id="conteudo" className="mt-16  bg-white flex-1 ">
+        <div className="p-10 flex items-center flex-col">
         <h1>Registro de Ocorrência</h1>
+
+        </div>
     </div>
     </div>
         )
