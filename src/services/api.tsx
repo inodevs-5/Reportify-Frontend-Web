@@ -1,5 +1,6 @@
-import { create } from 'apisauce';
+// import { create } from 'apisauce';
 // import AsyncStorage from '@react-native-async-storage/async-storage';
+import {create} from "apisauce";
 
 const api = create({
     baseURL: 'https://reportify-backend-a322.onrender.com',
@@ -11,7 +12,7 @@ api.addResponseTransform(response => {
 })
 
 api.addAsyncRequestTransform(request => async() => {
-    const token = localStorage.getItem('@Reportify:token');
+    const token = await localStorage.getItem('@Reportify:token');
 
     if (token) {
         request.headers['Authorization'] = `Baerer ${token}`;

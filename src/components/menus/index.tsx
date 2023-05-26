@@ -1,18 +1,28 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../../styles/global.css";
 import "./lado.css"
 import { FaComment, FaBell, FaBars, FaTimes  } from 'react-icons/fa';
 import { useState } from "react";
+import { useAuth } from "../../contexts/auth";
 // import { useState } from "react";
 
 
 function Menu() {
 const [open , setOpen] = useState(false)
+const { usuario, signOut } = useAuth();
+const navigate = useNavigate()
 
 const isopen = () => {
   setOpen(!open)
   console.log("passei")
 }
+
+const sair = () => {
+  window.location.reload();
+  signOut()
+}
+
+
 
   return (
     // menu decima
@@ -20,7 +30,7 @@ const isopen = () => {
       <div className="bg-primary fixed h-16 w-screen flex items-center justify-center">
         <div className="bg-primary fixed h-16 w-11/12 flex items-center justify-between" > 
         <div>
-          <h1 className="text-3xl text-white">Ola Fulano</h1>
+          <h1 className="text-3xl text-white">Ola {usuario.nome}</h1>
         </div>
         <div>
           <h1 className="text-3xl text-white" >Reportify</h1>
@@ -46,7 +56,7 @@ const isopen = () => {
       <div className="flex-1">
       <ul className="text-white flex flex-col flex-grow   p-4">
         <li className="">
-          <h1 className="text-3xl pl-2 text-white">Ola Fulano</h1>
+          <h1 className="text-3xl pl-2 text-white">Ola {usuario.nome}</h1>
         </li>
         <li className="py-3 rounded-xl text-center hover:bg-secondary cursor-pointer mt-3 ring-1 ring-black-300 shadow-2xl">
           <Link to="/tabelaRo" className="text-gray-400 p-4 hover:text-white">Registro de Ocorrência</Link>
@@ -68,7 +78,8 @@ const isopen = () => {
         </li>
         <div className="absolute pb-3 w-10/12 bottom-0 flex ">
         <button className="bg-blue-800  m-auto flex ring-offset-0 font-medium ring ring-blue-900 
-        justify-center p-1  items-center  w-3/6  text-white text-xl rounded-xl">
+        justify-center p-1  items-center  w-3/6  text-white text-xl rounded-xl"
+        onClick={sair}>
            <p>sair</p> 
         </button>
           </div>

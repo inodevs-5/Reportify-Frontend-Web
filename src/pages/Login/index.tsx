@@ -4,11 +4,14 @@ import { FaEyeSlash, FaEye } from 'react-icons/fa';
 import "../../styles/global.css";
 import { useState } from "react";
 import Loader from "../../components/loader";
+import { useAuth } from "../../contexts/auth";
+import { useNavigate } from "react-router-dom";
 
 
 function Login() {
 
-  // const { signIn } = useAuth();
+  const { signIn } = useAuth();
+  const navigate = useNavigate
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [loading, setLoading] = useState(false);
@@ -17,13 +20,15 @@ function Login() {
 
 
   async function entrar() {
-    // setLoading(true);
-    // try {
-    //   await signIn(email, senha);
-    // } catch (response) {
-    //   setErrorMessage(response.data.msg);
-    // }
-    // setLoading(false);
+    setLoading(true);
+    try {
+      await signIn(email, senha);
+      navigate('/home')
+
+    } catch (response) {
+      setErrorMessage(response.data.msg);
+    }
+    setLoading(false);
   }
   // const Forgotpassaword = () =>{
   //     console.log("manda")
@@ -34,18 +39,18 @@ function Login() {
   };
 
   return (
-    <div className="h-screen bg-gray-100 w-screen flex items-center justify-center">
-      {!!errorMessage && <input style={{ color: "red", fontSize: 15, marginBottom: 20 }}>{errorMessage}</input>}
+    <div className="h-screen bg-gray-100 w-screen flex-col flex items-center justify-center">
+      {!!errorMessage && <h1 className="text-red-800 text-2xl">{errorMessage}</h1>}
       <div className="w-2/3 h-4/5 flex justify-center items-center flex-col p-8">
         <h1 className="text-blue-900  text-7xl font-black mb-4" >Reportify</h1>
         <h2 className="text-4xl text-center text-blue-900 font-bold mb-8">Login</h2>
-        <div className="grid gap-11">
+        <div  className="grid gap-11">
           <div>
             <input
               className="bg-gray-300 p-2 pl-3 w-full outline-none shadow-md rounded-xl"
               type="email"
               placeholder='user@email.com.br'
-              onChange={texto => setEmail(texto)}
+              onChange={(event) => setEmail(event.target.value)}
             />
           </div>
           <div className="flex-row p-1 bg-gray-300 flex items-center  shadow-md rounded-xl justify-between">
@@ -53,7 +58,7 @@ function Login() {
               className="bg-gray-300 p-1 pl-3 outline-none w-4/5  rounded-xl"
               type={hidepass ? "text" : "password"}
               placeholder="Senha"
-              onChange={(texto => setSenha(texto))}
+              onChange={(event) => setSenha(event.target.value)}
             />
             <button onClick={handleTogglePassword} className="w-1/4 justify-end pr-3 flex outline-none">
               {hidepass ?
@@ -75,7 +80,7 @@ function Login() {
               !loading ?
 
                 (<button className="bg-blue-300 hover:bg-blue-400 hover:ring-blue-500  ring-offset-0 font-black  ring ring-blue-400 outline-none  p-1 text-white text-xl w-3/6 rounded-xl cursor-pointer"
-                  onClick={entrar}
+                 onClick={entrar}
                 >
                   Entrar
                 </button>)
