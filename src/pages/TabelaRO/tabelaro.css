@@ -1,9 +1,0 @@
-#conteudo{
-    margin-left: 10rem;
-}
-
-@media (max-width: 768px) {
-    #conteudo{
-        margin-left: 0rem;
-    }
-  }

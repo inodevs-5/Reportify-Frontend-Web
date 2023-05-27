@@ -1,5 +1,6 @@
 import { SyncLoader } from "react-spinners";
 
+
 function Loader() {
   return (
     <>

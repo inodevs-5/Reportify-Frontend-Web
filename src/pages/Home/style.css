@@ -1,9 +1,9 @@
-#conteudo{
-    margin-left: 10rem;
+#conteusdo{
+    margin-left: 18rem;
 }
 
 @media (max-width: 768px) {
-    #conteudo{
+    #conteusdo{
         margin-left: 0rem;
     }
   }

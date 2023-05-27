@@ -10,7 +10,6 @@ import { useAuth } from "../../contexts/auth";
 function Menu() {
 const [open , setOpen] = useState(false)
 const { usuario, signOut } = useAuth();
-const navigate = useNavigate()
 
 const isopen = () => {
   setOpen(!open)
@@ -30,7 +29,7 @@ const sair = () => {
       <div className="bg-primary fixed h-16 w-screen flex items-center justify-center">
         <div className="bg-primary fixed h-16 w-11/12 flex items-center justify-between" > 
         <div>
-          <h1 className="text-3xl text-white">Ola {usuario.nome}</h1>
+          <h1 className="text-3xl text-white">Olá {usuario.nome}</h1>
         </div>
         <div>
           <h1 className="text-3xl text-white" >Reportify</h1>
@@ -56,7 +55,7 @@ const sair = () => {
       <div className="flex-1">
       <ul className="text-white flex flex-col flex-grow   p-4">
         <li className="">
-          <h1 className="text-3xl pl-2 text-white">Ola {usuario.nome}</h1>
+          <h1 className="text-3xl pl-2 text-white">Olá {usuario.nome}</h1>
         </li>
         <li className="py-3 rounded-xl text-center hover:bg-secondary cursor-pointer mt-3 ring-1 ring-black-300 shadow-2xl">
           <Link to="/tabelaRo" className="text-gray-400 p-4 hover:text-white">Registro de Ocorrência</Link>
@@ -132,15 +131,15 @@ const sair = () => {
 
     
     {open ? (
-      <div id="bar" className="bg-primary p-2  fixed text-white cursor-pointer flex flex-col">
-        <button onClick={isopen}>
-          <FaTimes size={24} /> {/* Ícone de "X" */}
+      <div id="bar" className="bg-primary  fixed text-white flex flex-col">
+        <button className="cursor-pointer p-3" onClick={isopen}>
+          <FaTimes size={26} /> {/* Ícone de "X" */}
         </button>
       </div> 
       ) : (
-        <div id="bar" className="bg-primary p-2 mt-16 fixed text-white cursor-pointer flex flex-col">
-        <button onClick={isopen}>
-          <FaBars size={24} /> {/* Ícone de menu */}
+        <div id="bar" className="bg-primary mt-16 fixed text-white flex flex-col">
+        <button className="cursor-pointer p-2" onClick={isopen}>
+          <FaBars size={26} /> {/* Ícone de menu */}
         </button>
         </div>
       )}
