@@ -75,6 +75,9 @@ const sair = () => {
         <li className="py-3 rounded-xl text-center  mt-4 ring-1 hover:bg-secondary cursor-pointer ring-black-300 shadow-2xl">
         <Link to="/home" className="text-gray-400 p-4 w-full hover:text-white px-16 ">Home</Link>
         </li>
+        <li className="py-3 rounded-xl text-center  mt-4 ring-1 hover:bg-secondary cursor-pointer ring-black-300 shadow-2xl">
+        <Link to="/forceBackup" className="text-gray-400 p-4 hover:text-white">Opções Extras</Link>
+        </li>
         <div className="absolute pb-3 w-10/12 bottom-0 flex ">
         <button className="bg-blue-800  m-auto flex ring-offset-0 font-medium ring ring-blue-900 
         justify-center p-1  items-center  w-3/6  text-white text-xl rounded-xl"
@@ -114,6 +117,9 @@ const sair = () => {
         </li>
         <li className="py-3 rounded-xl text-center  mt-4 ring-1 hover:bg-secondary cursor-pointer ring-black-300 shadow-2xl">
         <Link to="/home" className="text-gray-400 p-4 hover:text-white">Home</Link>
+        </li>
+        <li className="py-3 rounded-xl text-center  mt-4 ring-1 hover:bg-secondary cursor-pointer ring-black-300 shadow-2xl">
+        <Link to="/forceBackup" className="text-gray-400 p-4 hover:text-white">Opções Extras</Link>
         </li>
         <div className="absolute pb-6 w-10/12 bottom-0 flex ">
         <button className="bg-blue-800  m-auto flex ring-offset-0 font-medium ring ring-blue-900 

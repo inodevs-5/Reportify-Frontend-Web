@@ -7,6 +7,7 @@ import MembroSuporte from '../../pages/Membro_suporte';
 import CadastroUsuario from '../../pages/CadastroUsuario';
 import Contatos from '../../pages/Contatos';
 import Notificacao from '../../pages/Notificacoes';
+import Backup from '../../pages/Backup';
 
 
 export default function AdminRoutes() {
@@ -20,6 +21,7 @@ export default function AdminRoutes() {
         <Route path='/cadastroUsuarios' element={<CadastroUsuario/>}/>
         <Route path='/contatos' element={<Contatos/>}/>
         <Route path='/notificacao' element={<Notificacao/>}/>
+        <Route path='/forceBackup' element={<Backup/>}/>
     </Routes>
         )
 }
