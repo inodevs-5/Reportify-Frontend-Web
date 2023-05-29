@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "../../styles/global.css";
+import "./tabela.css"
 import api from "../../services/api";
 import Loader_preto from "../loader/loaderpreto";
 import { FaEdit } from "react-icons/fa";

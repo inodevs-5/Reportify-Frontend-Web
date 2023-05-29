@@ -16,8 +16,8 @@ export default function AdminRoutes() {
         <Route path='/' element={<Home/>}/>
         <Route path='/CadastroRo' element={<CadastroRo/>}/>
         <Route path='/tabelaRo' element={<TabelaRo/>}/>
-        <Route path='/membroSuporte' element={<MembroSuporte/>}/>
-        <Route path='/cadastroUsuarios' element={<CadastroUsuario/>}/>
+        {/* <Route path='/membroSuporte' element={<MembroSuporte/>}/> */}
+        {/* <Route path='/cadastroUsuarios' element={<CadastroUsuario/>}/> */}
         <Route path='/contatos' element={<Contatos/>}/>
         <Route path='/notificacao' element={<Notificacao/>}/>
     </Routes>

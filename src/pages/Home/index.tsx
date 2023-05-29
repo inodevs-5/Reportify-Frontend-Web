@@ -12,7 +12,7 @@ import Loader_preto from '../../components/loader/loaderpreto';
 
 function Home() {
 
-  const { usuario, signOut } = useAuth();
+  const { usuario } = useAuth();
   // const {height} = Dimensions.get('screen')
   const [usuarios, setUsuarios] = useState()
   const [errorMessage, setErrorMessage] = useState(null);
@@ -52,7 +52,7 @@ function Home() {
       <div id="conteusdo" className="mt-16 w-full flex ">
         <div className="flex p-10 w-full items-center  flex-col">
         <h1 className='text-3xl my-2 font-black'>Meus Ros</h1>
-        <div className="flex w-full max-h-screen  overflow-auto  my-2 justify-center">
+        <div className="flex w-full max-h-80  rounded-xl overflow-auto border-y border-slate-600 shadow-xl my-2 justify-center">
         {        
        myRos && !loading ?(
         

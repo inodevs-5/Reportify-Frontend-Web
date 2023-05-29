@@ -7,6 +7,7 @@ import MembroSuporte from '../../pages/Membro_suporte';
 import CadastroUsuario from '../../pages/CadastroUsuario';
 import Contatos from '../../pages/Contatos';
 import Notificacao from '../../pages/Notificacoes';
+import Backup from '../../pages/backup';
  
 
 export default function Routas() {
@@ -15,6 +16,7 @@ export default function Routas() {
         <Route path='/' element={<Home/>}/>
         <Route path='*' element={<Home/>}/>
         <Route path='/home' element={<Home/>}/>
+        <Route path="backup" element={<Backup/>}/>
         <Route path='/CadastroRo' element={<CadastroRo/>}/>
         <Route path='/tabelaRo' element={<TabelaRo/>}/>
         <Route path='/membroSuporte' element={<MembroSuporte/>}/>
