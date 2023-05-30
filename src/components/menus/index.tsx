@@ -23,7 +23,6 @@ const sair = () => {
 
 
   return (
-    // menu decima
     <div className="flex relative flex-wrap">
       <div className="bg-primary fixed h-16 w-screen flex items-center justify-center">
         <div className="bg-primary fixed h-16 w-11/12 flex items-center justify-between" > 
@@ -59,24 +58,27 @@ const sair = () => {
         <li className="py-3 rounded-xl text-center hover:bg-secondary cursor-pointer mt-3 ring-1 ring-black-300 shadow-2xl">
           <Link to="/tabelaRo" className="text-gray-400 p-4 hover:text-white">Registro de Ocorrência</Link>
         </li>
+        { usuario && usuario.perfil === 'admin' && 
         <li className="py-3 rounded-xl text-center hover:bg-secondary  cursor-pointer mt-4 ring-1 ring-black-800 shadow-2xl">
         <Link to="/membroSuporte" className="text-gray-400 hover:text-white  p-4 ">Membros do Suporte</Link>
-        </li>
+        </li>}
         <li className="py-3 rounded-xl text-center hover:bg-secondary  mt-4 ring-1 ring-black-300 shadow-2xl">
         <Link to="/CadastroRo" className="text-gray-400 p-4 hover:text-white">Novo Registro de Ocorrência</Link>
         </li>
-        <li className="py-3 rounded-xl  text-center  mt-4 ring-1 hover:bg-secondary cursor-pointer ring-black-300 shadow-2xl">
+       { usuario && usuario.perfil === 'admin' && <li className="py-3 rounded-xl  text-center  mt-4 ring-1 hover:bg-secondary cursor-pointer ring-black-300 shadow-2xl">
         <Link to="/cadastroUsuarios" className="text-gray-400 p-4 hover:text-white">Cadastrar Novo Usuário</Link>
-        </li>
+        </li>}
         <li className="py-3 rounded-xl text-center  mt-4 ring-1 hover:bg-secondary cursor-pointer ring-black-300 shadow-2xl">
         <Link to="/contatos" className="text-gray-400 p-4 hover:text-white px-16 ">Meus Chats</Link>
         </li>
         <li className="py-3 rounded-xl text-center  mt-4 ring-1 hover:bg-secondary cursor-pointer ring-black-300 shadow-2xl">
         <Link to="/home" className="text-gray-400 p-4 w-full hover:text-white px-16 ">Home</Link>
         </li>
+        {usuario && usuario.perfil === 'admin' && 
         <li className="py-3 rounded-xl text-center  mt-4 ring-1 hover:bg-secondary cursor-pointer ring-black-300 shadow-2xl">
         <Link to="/backup" className="text-gray-400 p-4 w-full hover:text-white px-16 ">Backup</Link>
         </li>
+        }
         <div className="absolute pb-3 w-10/12 bottom-0 flex ">
         <button className="bg-blue-800  m-auto flex ring-offset-0 font-medium ring ring-blue-900 
         justify-center p-1  items-center  w-3/6  text-white text-xl rounded-xl"
@@ -102,24 +104,27 @@ const sair = () => {
         <li className="py-3 rounded-xl text-center hover:bg-secondary cursor-pointer mt-3 ring-1 ring-black-300 shadow-2xl">
           <Link to="/tabelaRo" className="text-gray-400 p-4 hover:text-white">Registro de Ocorrência</Link>
         </li>
+        { usuario && usuario.perfil === 'admin' &&
         <li className="py-3 rounded-xl text-center hover:bg-secondary  cursor-pointer mt-4 ring-1 ring-black-800 shadow-2xl">
         <Link to="/membroSuporte" className="text-gray-400 hover:text-white  p-4">Membros do Suporte</Link>
-        </li>
+        </li>}
         <li className="py-3 rounded-xl text-center hover:bg-secondary  mt-4 ring-1 ring-black-300 shadow-2xl">
         <Link to="/CadastroRo" className="text-gray-400 p-4 hover:text-white">Novo Registro de Ocorrência</Link>
         </li>
+        { usuario && usuario.perfil === 'admin' &&
         <li className="py-3 rounded-xl  text-center  mt-4 ring-1 hover:bg-secondary cursor-pointer ring-black-300 shadow-2xl">
         <Link to="/cadastroUsuarios" className="text-gray-400 p-4 hover:text-white">Cadastrar Novo Usuário</Link>
-        </li>
+        </li>}
         <li className="py-3 rounded-xl text-center  mt-4 ring-1 hover:bg-secondary cursor-pointer ring-black-300 shadow-2xl">
         <Link to="/contatos" className="text-gray-400 p-4 hover:text-white">Meus Chats</Link>
         </li>
         <li className="py-3 rounded-xl text-center  mt-4 ring-1 hover:bg-secondary cursor-pointer ring-black-300 shadow-2xl">
         <Link to="/home" className="text-gray-400 p-4 hover:text-white">Home</Link>
         </li>
+        {usuario && usuario.perfil === 'admin' &&
         <li className="py-3 rounded-xl text-center  mt-4 ring-1 hover:bg-secondary cursor-pointer ring-black-300 shadow-2xl">
         <Link to="/backup" className="text-gray-400 p-4 w-full hover:text-white px-16 ">Backup</Link>
-        </li>
+        </li>}
         <div className="absolute pb-6 w-10/12 bottom-0 flex ">
         <button className="bg-blue-800  m-auto flex ring-offset-0 font-medium ring ring-blue-900 
         justify-center p-1  items-center  w-3/6  text-white text-xl rounded-xl">

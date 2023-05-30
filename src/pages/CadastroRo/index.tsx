@@ -8,6 +8,8 @@ import { useAuth } from "../../contexts/auth";
 // import { Redirect } from 'react-router-dom';
 import { redirect } from "react-router-dom";
 import LoaderRo from "../../components/loader/loaderRo";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 // import Alert from "@mui/material/Alert";
 // import BasicAlerts from "../../components/Alertas";
 // import Alert from '@mui/material/Alert';
@@ -34,9 +36,11 @@ function CadastroRo () {
   const [descricao, setDescricao] = useState('');
   const [titulo, setTitulo] = useState('');
   const [errorMessage, setErrorMessage] = useState(null);
-  const [logsAnexados, setLogsAnexados] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const navigate = useNavigate
+  const [logsAnexados, setLogsAnexados] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [loading1, setLoading1] = useState(true);
+  const [enviado , setEnviado] = useState(false)
+  // const navigate = useNavigate
   
   const [usuarios, setUsuarios] = useState([]);
   const [selectedUser, setSelectedUser] = useState(usuario._id);
@@ -46,7 +50,7 @@ function CadastroRo () {
         const response = await api.get('/usuario');
 
         setUsuarios(response.data);
-        setLoading(false);
+        setLoading1(false);
       } catch (response) {
         console.log(response.data.msg);
       }
@@ -75,10 +79,7 @@ function CadastroRo () {
         data.append('classDefeito', 'software');
         data.append('versaoBaseDados', versaoBaseDados);
         data.append('versaoSoftware', versaoSoftware);
-
-        logsAnexados.forEach((l) => {
-          data.append('anexo', l);
-        });
+        data.append( 'anexo' , logsAnexados);
 
       } else if (hardwareChecked) {
         data.append('classDefeito', 'hardware');
@@ -93,17 +94,13 @@ function CadastroRo () {
       }
       data.append('tituloOcorrencia', titulo);
       
-      const response = await api.post('/ro', data, {headers: {'Content-Type': 'multipart/form-data'}});
-      alert('Botão clicado!');
-      return navigate("/")
-      
-     
+      const response = await api.post('/ro', data, {headers: {'Content-Type': 'multipart/form-data'}})
+      roni()
     } catch (response) {
       if (response && response.data && response.data.msg) {
         setErrorMessage(response.data.msg);
         console.log(response.data.msg)
       } else {
-        // Lógica para lidar com o caso em que 'response', 'response.data' ou 'response.data.msg' sejam indefinidos.
         setLoading(false);
         console.log('indefinido')
         
@@ -123,8 +120,23 @@ function CadastroRo () {
   };
 
 
-  const  roni = () => {
-    return navigate("/")
+
+  // const notify = () => toast("Wow so easy!");
+
+  async function roni () {
+    toast.success('RO cadastrado com sucesso', {
+      position: "bottom-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      });
+    setTimeout(() => {
+    setEnviado(true)
+    },3000)
   }
 
 return(
@@ -135,12 +147,28 @@ return(
     {/* {conteudo fica aqui} */}
     <div id="conteusdo" className="mt-16 w-full flex-1">
       <div className="p-10 flex items-center flex-col">
+        <ToastContainer
+        position="bottom-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+        />
       <h1 className="text-xl text-black  font-semibold">
           Novo Registro de Ocorrência
         </h1>    
-        <h1>
-        {!!errorMessage && <h1 className="text-red-800 text-2xl">{errorMessage}</h1>}
-        </h1>
+        {
+        !!errorMessage && 
+        <>
+        <h1 className="text-red-900">{errorMessage}</h1>
+          </>
+        }
+        
         <div className="flex flex-col mt-4 w-3/4">
         <div className="flex mb-4">
       <label htmlFor="contrato" className="block text-gray-700 font-bold w-1/4">
@@ -164,17 +192,23 @@ return(
         className="border-b border-gray-400 focus:border-primary focus:outline-none px-2 py-0 flex-grow"
       />
     </div>
-    <div className="flex mb-4">
+    {  usuario && usuario.perfil === 'admin' && 
+      
+      <div className="flex mb-4">
       <label htmlFor="Relator" className="block text-gray-700 font-bold w-1/4">
         Relator:
       </label>
-      { !loading ? 
+      { !loading1 ? 
       <>
       <select
       name="Relator"
       className="border-b border-gray-400 focus:border-primary focus:outline-none px-2 py-0 flex-grow"
+      onChange={e => setSelectedUser(e.target.value)}
       id="Relator"
       >
+    <option disabled selected>
+    Selecione
+  </option>
       { usuarios && usuarios.map((relator) => (
       <option key={relator._id} value={relator._id}>{relator.nome}</option>
       ))}
@@ -183,7 +217,7 @@ return(
     :
        <LoaderRo/>
       }
-    </div>
+    </div>}
     <div className="flex mb-4">
       <label htmlFor="POS./GRAD" className="block text-gray-700 font-bold w-1/4">
         POS./GRAD:
@@ -226,6 +260,7 @@ return(
       <input
         type="checkbox"
         value="hardware"
+        disabled={softwareChecked}
         onChange={handleHardwareCheck}
         id="hardware"
         className="border-b border-gray-400 focus:border-primary focus:outline-none px-2 py-0 flex-grow"
@@ -234,6 +269,7 @@ return(
       <input
         type="checkbox"
         value="sofware"
+        disabled={hardwareChecked}
         onChange={handleSoftwareCheck}
         id="software"
         className="border-b border-gray-400 focus:border-primary focus:outline-none px-2 py-0 flex-grow"
@@ -320,17 +356,19 @@ return(
        className="border-b border-gray-400 focus:border-primary focus:outline-none px-2 py-0 flex-grow"
        />
      </div>
+     { usuario && usuario.perfil === 'cliente' &&
      <div className="flex mb-4">
      <label htmlFor="log_anexados" className="block text-gray-700 font-bold w-1/4">
        Logs Anexos
      </label>
      <input
-       type="text"
+       type="file"
        id="log_anexados"
-       onChange={(event) => setLogsAnexados(event.target.value)}
+       name=""
+       onChange={(event) => setLogsAnexados(event.target.files[0])}
        className="border-b border-gray-400 focus:border-primary focus:outline-none px-2 py-0 flex-grow"
        />
-     </div>
+     </div>}
       </>
     )
 
@@ -359,10 +397,19 @@ return(
     </div>
     <div className="flex justify-center w-full ">
     <div className="flex justify-end w-1/2 ">
+
+
+    {enviado && (
+      <>
+          <Navigate to="/home" replace={true} />
+      </> 
+        )}
+        
+
     {
               !loading ?
 
-                (<button className="bg-blue-300 ml-4 hover:bg-blue-400 hover:ring-blue-500  ring-offset-0 font-black  ring ring-blue-400 outline-none  p-1 text-white text-xl w-3/6 rounded-xl cursor-pointer"
+                (<button className="bg-blue-300 hover:bg-blue-400 hover:ring-blue-500  ring-offset-0 font-black  ring ring-blue-400 outline-none  p-1 text-white text-xl w-3/6 rounded-xl cursor-pointer"
                 onClick={cadastrarRO}
                 >
                   Enviar

@@ -16,7 +16,7 @@ export default function Routas() {
         <Route path='/' element={<Home/>}/>
         <Route path='*' element={<Home/>}/>
         <Route path='/home' element={<Home/>}/>
-        <Route path="backup" element={<Backup/>}/>
+        {/* <Route path="backup" element={<Backup/>}/> */}
         <Route path='/CadastroRo' element={<CadastroRo/>}/>
         <Route path='/tabelaRo' element={<TabelaRo/>}/>
         <Route path='/membroSuporte' element={<MembroSuporte/>}/>
