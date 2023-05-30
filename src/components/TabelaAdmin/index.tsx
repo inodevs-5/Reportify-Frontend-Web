@@ -214,39 +214,17 @@ useEffect(() => {
      </div>
      <div className="w-full h-16 flex  justify-center items-center ">
           <div className="justify-around items-center flex w-3/5">
-            <button className='
-            hover:ring-blue-400 
-            hover:from-blue-700 
-            hover:to-blue-400 
-            bg-gradient-to-r  
-            from-blue-400 
-            to-blue-700    
-            ring-offset-0 
-            font-black  
-            ring ring-blue-400 
-            outline-none   
-            text-white text-xl  
-            rounded-xl 
-            cursor-pointer'
+            <button className={ 
+              selectedFirstButton ? "hover:ring-blue-400 hover:from-blue-700 hover:to-blue-400 bg-gradient-to-r  from-blue-400 to-blue-700    ring-offset-0 font-black  ring ring-blue-400 outline-none   text-white text-xl  rounded-xl cursor-pointer" 
+              : "bg-gradient-to-r  from-blue-800 to-zinc-700    ring-offset-0 font-black  ring ring-blue-800 outline-none   text-white text-xl  rounded-xl"}
             onClick={changeToAll}
             disabled={selectedSecondButton}
             >
               <p className="p-2">Todos Registros</p>
             </button>
-            <button className="
-            hover:ring-blue-400 
-            hover:from-blue-400 
-            hover:to-blue-700 
-            bg-gradient-to-r  
-            from-blue-700 
-            to-blue-400    
-            ring-offset-current
-            font-black  
-            ring ring-blue-400 
-            outline-none   
-            text-white text-xl  
-            rounded-xl 
-            cursor-pointer"
+            <button className={ selectedSecondButton ? "hover:ring-blue-400 hover:from-blue-400 hover:to-blue-700 bg-gradient-to-r  from-blue-700 to-blue-400    ring-offset-currentfont-black  ring ring-blue-400 outline-none   text-white text-xl  rounded-xl cursor-pointer"
+          :  "bg-gradient-to-r  from-blue-800 to-zinc-700    ring-offset-0 font-black  ring ring-blue-800 outline-none   text-white text-xl  rounded-xl" 
+          }
             disabled={selectedFirstButton}
             
             onClick={changeToMyTasks}
