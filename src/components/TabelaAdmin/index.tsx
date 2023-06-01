@@ -117,9 +117,6 @@ useEffect(() => {
     setSelectedSecondButton(!selectedSecondButton)
   }
 
-  const limparInput = () => {
-    setInput('');
-  };
 
     return(
       <div id="conteusdo" className="mt-16 w-full flex ">
@@ -300,7 +297,8 @@ useEffect(() => {
               : "bg-gradient-to-r  from-blue-800 to-zinc-700    ring-offset-0 font-black  ring ring-blue-800 outline-none   text-white text-xl  rounded-xl"}
             onClick={changeToAll}
             disabled={selectedSecondButton}
-            > 
+            >
+              <p className="p-2">Todos Registros</p>
             </button>
             <button className={ selectedSecondButton ? "hover:ring-blue-400 hover:from-blue-400 hover:to-blue-700 bg-gradient-to-r  from-blue-700 to-blue-400    ring-offset-currentfont-black  ring ring-blue-400 outline-none   text-white text-xl  rounded-xl cursor-pointer"
           :  "bg-gradient-to-r  from-blue-800 to-zinc-700    ring-offset-0 font-black  ring ring-blue-800 outline-none   text-white text-xl  rounded-xl" 
