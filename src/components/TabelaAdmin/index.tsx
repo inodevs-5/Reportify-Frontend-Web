@@ -81,7 +81,7 @@ useEffect(() => {
                   <th className="border border-slate-700">Título</th>
                   <th className="border border-slate-700">Status</th>
                   <th className="border border-slate-700">Colaborador</th>
-                  <th className="border border-slate-700">Responsavel</th>
+                  <th className="border border-slate-700">Relator</th>
                   <th className="border border-slate-700">Editar</th>
                 </tr>
               </thead>
@@ -149,7 +149,7 @@ useEffect(() => {
         <th className="border border-slate-700">Título</th>
         <th className="border border-slate-700">Status</th>
         <th className="border border-slate-700">Colaborador</th>
-        <th className="border border-slate-700">Responsavel</th>
+        <th className="border border-slate-700">Relator</th>
         <th className="border border-slate-700">Editar</th>
       </tr>
     </thead>
@@ -219,8 +219,7 @@ useEffect(() => {
               : "bg-gradient-to-r  from-blue-800 to-zinc-700    ring-offset-0 font-black  ring ring-blue-800 outline-none   text-white text-xl  rounded-xl"}
             onClick={changeToAll}
             disabled={selectedSecondButton}
-            >
-              <p className="p-2">Todos Registros</p>
+            > 
             </button>
             <button className={ selectedSecondButton ? "hover:ring-blue-400 hover:from-blue-400 hover:to-blue-700 bg-gradient-to-r  from-blue-700 to-blue-400    ring-offset-currentfont-black  ring ring-blue-400 outline-none   text-white text-xl  rounded-xl cursor-pointer"
           :  "bg-gradient-to-r  from-blue-800 to-zinc-700    ring-offset-0 font-black  ring ring-blue-800 outline-none   text-white text-xl  rounded-xl" 
@@ -247,7 +246,7 @@ useEffect(() => {
                   <th className="border border-slate-700">Título</th>
                   <th className="border border-slate-700">Status</th>
                   <th className="border border-slate-700">Colaborador</th>
-                  <th className="border border-slate-700">Responsavel</th>
+                  <th className="border border-slate-700">Relator</th>
                   <th className="border border-slate-700">Editar</th>
                 </tr>
               </thead>
@@ -307,7 +306,7 @@ useEffect(() => {
 
          </div>
      </>
-}
+    }
 
 
 
