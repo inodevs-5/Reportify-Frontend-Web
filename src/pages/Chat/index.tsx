@@ -22,6 +22,11 @@ const Chat: React.FC = () => {
       setInputText('');
     }
   };
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      handleSendMessage();
+    }
+  };
 
   return (
 
@@ -52,6 +57,7 @@ const Chat: React.FC = () => {
               placeholder="Digite sua mensagem..."
               value={inputText}
               onChange={handleInputChange}
+              onKeyPress={handleKeyPress}
             />
             <button onClick={handleSendMessage}>Enviar</button>
          </div>
