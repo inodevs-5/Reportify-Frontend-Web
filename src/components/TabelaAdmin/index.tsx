@@ -218,8 +218,12 @@ useEffect(() => {
               }</> : ""  }
      { selectedFirstButton ? <>
      {        
-       myRos && !loading ?(
-        
+       myRos && !loading ?  <>
+       {   myRos.length == 0 ? 
+      
+       <h1 className="text-3xl text-red-800 font-black ">
+        {usuario.nome} você não posssui ros atribuidos
+       </h1> :
         <table className="w-full   md:table-fixed table-fixed ">
     <thead>
       <tr className="text-center border border-slate-600 bg-gradient-to-r from-zinc-800 to-zinc-700 text-gray-50  text-xl">
@@ -278,7 +282,7 @@ useEffect(() => {
       ))}
       </tbody>
         </table>
-        ) : (
+        }</> : (
         <>
       <Loader_preto/>
         </>
@@ -315,7 +319,10 @@ useEffect(() => {
       :
      <>
          <div className="flex w-full max-h-80  rounded-xl overflow-auto border-y border-slate-600 shadow-xl my-2 justify-center">
-          { ros && !loading ?(
+          { ros && !loading ?
+          <> { ros.length == 0 ?  <h1 className="text-3xl text-red-800 font-black ">
+          {usuario.nome} você não posssui ros atribuidos
+         </h1> :
                   
                   <table className="w-full   md:table-fixed table-fixed ">
               <thead>
@@ -324,7 +331,6 @@ useEffect(() => {
                   <th className="border border-slate-700">Título</th>
                   <th className="border border-slate-700">Status</th>
                   <th className="border border-slate-700">Colaborador</th>
-                  <th className="border border-slate-700">Relator</th>
                   <th className="border border-slate-700">Editar</th>
                 </tr>
               </thead>
@@ -362,7 +368,6 @@ useEffect(() => {
                       </div>
                       </div>
                       </td>
-                  <td className="border border-slate-700 p-1 text-center ">{ro.relator.id ? ro.relator.id.nome.charAt(0).toUpperCase() + ro.relator.id.nome.slice(1) : "N/A"}</td>
                   <td className="border border-slate-700 p-1">
                     <div className="flex w-full items-center justify-center ">
                       <button  className="curso-pointer p-2 ">
@@ -374,7 +379,7 @@ useEffect(() => {
                 ))}
                 </tbody>
                   </table>
-                  ) : (
+                }  </> : (
                   <>
                 <Loader_preto/>
                   </>

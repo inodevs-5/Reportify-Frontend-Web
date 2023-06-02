@@ -53,67 +53,71 @@ function Home() {
         <div className="flex p-10 w-full items-center  flex-col">
         <h1 className='text-3xl my-2 font-black'>Meus Ros</h1>
         <div className="flex w-full max-h-80  rounded-xl overflow-auto border-y border-slate-600 shadow-xl my-2 justify-center">
-       { usuario.nivel == "admin" ? <>
-        {    myRos && usuario.nivel == "admin" && !loading ?(
-        
-        <table className="w-full   md:table-fixed table-fixed ">
-    <thead>
-      <tr className="text-center border border-slate-600 bg-gradient-to-r from-zinc-800 to-zinc-700 text-gray-50  text-xl">
-        <th className="border border-slate-700">ID</th>
-        <th className="border border-slate-700">Título</th>
-        <th className="border border-slate-700">Status</th>
-        <th className="border border-slate-700">Colaborador</th>
-        <th className="border border-slate-700">Responsavel</th>
-        <th className="border border-slate-700">Editar</th>
-      </tr>
-    </thead>
-    <tbody >
-       {myRos.map((ro , i)=> (
-        <tr className={i % 2 === 0 ? 'bg-gray-200' : 'bg-white'} key={ro._id}>
-        <td className="border border-slate-700 tex p-1">
-          <div className="flex justify-center">
-          <div className="flex text-white text-lg  bg-gradient-to-r from-zinc-800 to-zinc-700 rounded-3xl w-2/5 justify-center"> 
-            {ro._id}
-          </div>
-          </div>
-          
-          </td>
-        <td className="border border-slate-700 p-1 text-center">{ro.tituloOcorrencia.charAt(0).toUpperCase()+ ro.tituloOcorrencia.slice(1)}</td>
-        <td className="border border-slate-700 p-1  text-center">
-          <div className="flex justify-center">
-          <div className={
-            ro.suporte ? 
-            ro.suporte.fase == "concluido" ?
-            "bg-green-500 rounded-xl w-3/4 " : 
-            ro.suporte ? 
-            ro.suporte.fase == "validacao" ? 
-            "bg-yellow-400 rounded-xl w-3/4 " : "bg-slate-300 rounded-xl w-3/4" : 
-            ""
-            : "bg-slate-300 rounded-xl w-3/4" }>
-          {ro.suporte ? ro.suporte.fase.charAt(0).toUpperCase() + ro.suporte.fase.slice(1) : "Pendente" }
-          </div>
-          </div>
-          </td>
-        <td className="border border-slate-700 p-1">
-          <div className="flex justify-center text-center">
-          <div className={ro.suporte && ro.suporte.colaboradorIACIT && ro.suporte.colaboradorIACIT.id ? "bg-primary text-white rounded-xl w-3/4" : "bg-slate-300 rounded-xl w-3/4"}>
-            {ro.suporte && ro.suporte.colaboradorIACIT && ro.suporte.colaboradorIACIT.id ? ro.suporte.colaboradorIACIT.id.nome : "A definir"}
-            </div>
-            </div>
-            </td>
-        <td className="border border-slate-700 p-1 text-center ">{ro.responsavel ? ro.responsavel.nome.charAt(0).toUpperCase() + ro.responsavel.nome.slice(1) : "a"}</td>
-        <td className="border border-slate-700 p-1">
-          <div className="flex w-full items-center justify-center ">
-            <button  className="curso-pointer p-2 ">
-              <FaEdit size={24}/>
-            </button>
-          </div>
-            </td>
-      </tr>
-      ))}
-      </tbody>
-        </table>
-        ) : (
+       { usuario.perfil == "admin" ? <>
+        {    
+        myRos  && !loading ? <>
+        {
+         myRos.length == 0 ? <h1 className="text-3xl text-red-800 font-black " >{usuario.nome} você não posssui Ros</h1> :
+ <table className="w-full   md:table-fixed table-fixed ">
+ <thead>
+   <tr className="text-center border border-slate-600 bg-gradient-to-r from-zinc-800 to-zinc-700 text-gray-50  text-xl">
+     <th className="border border-slate-700">ID</th>
+     <th className="border border-slate-700">Título</th>
+     <th className="border border-slate-700">Status</th>
+     <th className="border border-slate-700">Colaborador</th>
+     <th className="border border-slate-700">Responsavel</th>
+     <th className="border border-slate-700">Editar</th>
+   </tr>
+ </thead>
+ <tbody >
+    {myRos.map((ro , i)=> (
+     <tr className={i % 2 === 0 ? 'bg-gray-200' : 'bg-white'} key={ro._id}>
+     <td className="border border-slate-700 tex p-1">
+       <div className="flex justify-center">
+       <div className="flex text-white text-lg  bg-gradient-to-r from-zinc-800 to-zinc-700 rounded-3xl w-2/5 justify-center"> 
+         {ro._id}
+       </div>
+       </div>
+       
+       </td>
+     <td className="border border-slate-700 p-1 text-center">{ro.tituloOcorrencia.charAt(0).toUpperCase()+ ro.tituloOcorrencia.slice(1)}</td>
+     <td className="border border-slate-700 p-1  text-center">
+       <div className="flex justify-center">
+       <div className={
+         ro.suporte ? 
+         ro.suporte.fase == "concluido" ?
+         "bg-green-500 rounded-xl w-3/4 " : 
+         ro.suporte ? 
+         ro.suporte.fase == "validacao" ? 
+         "bg-yellow-400 rounded-xl w-3/4 " : "bg-slate-300 rounded-xl w-3/4" : 
+         ""
+         : "bg-slate-300 rounded-xl w-3/4" }>
+       {ro.suporte ? ro.suporte.fase.charAt(0).toUpperCase() + ro.suporte.fase.slice(1) : "Pendente" }
+       </div>
+       </div>
+       </td>
+     <td className="border border-slate-700 p-1">
+       <div className="flex justify-center text-center">
+       <div className={ro.suporte && ro.suporte.colaboradorIACIT && ro.suporte.colaboradorIACIT.id ? "bg-primary text-white rounded-xl w-3/4" : "bg-slate-300 rounded-xl w-3/4"}>
+         {ro.suporte && ro.suporte.colaboradorIACIT && ro.suporte.colaboradorIACIT.id ? ro.suporte.colaboradorIACIT.id.nome : "A definir"}
+         </div>
+         </div>
+         </td>
+     <td className="border border-slate-700 p-1 text-center ">{ro.responsavel ? ro.responsavel.nome.charAt(0).toUpperCase() + ro.responsavel.nome.slice(1) : "a"}</td>
+     <td className="border border-slate-700 p-1">
+       <div className="flex w-full items-center justify-center ">
+         <button  className="curso-pointer p-2 ">
+           <FaEdit size={24}/>
+         </button>
+       </div>
+         </td>
+   </tr>
+   ))}
+   </tbody>
+     </table>
+        }
+       
+       </> : (
         <>
       <Loader_preto/>
         </>
@@ -121,7 +125,8 @@ function Home() {
     
     }
   </>
-   : <>
+   :
+  <>
     { ros && !loading ?(
                   
                   <table className="w-full   md:table-fixed table-fixed ">
