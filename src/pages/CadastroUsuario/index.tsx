@@ -58,11 +58,13 @@ function CadastroUsuario () {
   }
 
 return(
-<div className="flex flex-wrap flex-row">
+  <div className="flex flex-wrap flex-row">
     <div>
-    <Menu/>
+      <Menu/>
     </div>
+
     {/* {conteudo fica aqui} */}
+
     <div id="conteusdo" className="mt-16 w-full flex-1">
       <div className="p-10 flex items-center flex-col">
         <ToastContainer
@@ -77,9 +79,11 @@ return(
         pauseOnHover
         theme="colored"
         />
+      
       <h1 className="text-xl text-black  font-semibold">
           Cadastrar Usuário
-        </h1>    
+      </h1>    
+
         {
         !!errorMessage && 
         <>
@@ -87,22 +91,22 @@ return(
           </>
         }
         
-        <div className="flex flex-col mt-4 w-3/4">
+      <div className="flex flex-col mt-4 w-3/4">
         <div className="flex mb-4">
-      <label htmlFor="nome" className="block text-gray-700 font-bold w-1/4">
-        Nome:
-      </label>
+        <label htmlFor="nome" className="block text-gray-700 font-bold w-1/4">
+          Nome:
+        </label>
       <input
         type="text"
         id="nome"
         onChange={(event) => setNome(event.target.value)}
         className="border-b border-gray-400 focus:border-primary focus:outline-none px-2 py-0 flex-grow"
       />
-    </div>
-    <div className="flex mb-4">
-      <label htmlFor="email" className="block text-gray-700 font-bold w-1/4">
-        Email:
-      </label>
+      </div>
+      <div className="flex mb-4">
+        <label htmlFor="email" className="block text-gray-700 font-bold w-1/4">
+          Email:
+        </label>
       <input
         type="text"
         id="email"
@@ -110,10 +114,10 @@ return(
         className="border-b border-gray-400 focus:border-primary focus:outline-none px-2 py-0 flex-grow"
       />
     </div>
-    <div className="flex mb-4">
-      <label htmlFor="perfil" className="block text-gray-700 font-bold w-1/4">
-        Perfil:
-      </label>
+      <div className="flex mb-4">
+        <label htmlFor="perfil" className="block text-gray-700 font-bold w-1/4">
+          Perfil:
+        </label>
       <input
         type="text"
         id="perfil"
@@ -121,21 +125,21 @@ return(
         className="border-b border-gray-400 focus:border-primary focus:outline-none px-2 py-0 flex-grow"
       />
     </div>
-    <div className="flex mb-4">
-      <label htmlFor="empresa" className="block text-gray-700 font-bold w-1/4">
-        Empresa:
-      </label>
+      <div className="flex mb-4">
+        <label htmlFor="empresa" className="block text-gray-700 font-bold w-1/4">
+          Empresa:
+        </label>
       <input
         type="text"
         id="empresa"
         onChange={(event) => setEmpresa(event.target.value)}
         className="border-b border-gray-400 focus:border-primary focus:outline-none px-2 py-0 flex-grow"
       />
+</div>
+  </div>
     </div>
-    </div>
-    </div>
-    <div className="flex justify-center w-full ">
-    <div className="flex justify-end w-1/2 ">
+      <div className="flex justify-center w-full">
+        <div className="flex justify-end w-1/2">
 
 
     {enviado && (
@@ -148,38 +152,21 @@ return(
         !loading ?
 
        (<button className="bg-blue-300 hover:bg-blue-400 hover:ring-blue-500  ring-offset-0 font-black  ring ring-blue-400 outline-none  p-1 text-white text-xl w-3/6 rounded-xl cursor-pointer"
-         onClick={cadastrarUsuario}
-        >
-          Cadastrar Usuário
+         onClick={cadastrarUsuario}>
+          Cadastrar
         </button>)
                 : (
         <div className="bg-blue-300 ring-offset-0 font-black ring ring-blue-400 flex justify-center p-1  items-center  w-3/6  text-white text-xl rounded-xl ">
           <Loader />
          </div>
                 )
-
-            }
-{
-        !loading ?
-
-       (<button className="bg-blue-300 hover:bg-blue-400 hover:ring-blue-500  ring-offset-0 font-black  ring ring-blue-400 outline-none  p-1 text-white text-xl w-3/6 rounded-xl cursor-pointer"
-         onClick={cadastrarUsuario}
-        >
-          Editar Usuário
-        </button>)
-                : (
-        <div className="bg-blue-300 ring-offset-0 font-black ring ring-blue-400 flex justify-center p-1  items-center  w-3/6  text-white text-xl rounded-xl ">
-          <Loader />
-         </div>
-                )
-
-            }
-    
+    }
 </div>
   </div>
-   </div>
     </div>
+      </div>
 
-);
+  );
 }
+
 export default CadastroUsuario
