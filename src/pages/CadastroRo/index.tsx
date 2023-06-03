@@ -203,36 +203,7 @@ return(
         className="border-b border-gray-400 focus:border-primary focus:outline-none px-2 py-0 flex-grow"
         />
         </div> </div>
-        <div className="flex  mb-4 flex-col">
-      <div className="flex flex-row">
-      <label htmlFor="Defeito" className="block text-gray-700 font-bold w-1/4">
-        Categoria:
-      </label>
-      <label htmlFor="hardware">Alta</label>
-      <input
-        type="checkbox"
-        value="defeito"
-        disabled={softwareChecked}
-        id="defeito"
-        className="border-b border-gray-400 focus:border-primary focus:outline-none px-2 py-0 flex-grow"
-        />
-      <label htmlFor="software">Média</label>
-      <input
-        type="checkbox"
-        value="melhoria"
-        disabled={hardwareChecked}
-        id="melhoria"
-        className="border-b border-gray-400 focus:border-primary focus:outline-none px-2 py-0 flex-grow"
-        />
-        <label htmlFor="software">Baixa</label>
-      <input
-        type="checkbox"
-        value=""
-        disabled={hardwareChecked}
-        id=""
-        className="border-b border-gray-400 focus:border-primary focus:outline-none px-2 py-0 flex-grow"
-        />
-        </div> </div>
+  
     
 
    
@@ -381,6 +352,36 @@ return(
         className="border-b border-gray-400 focus:border-primary focus:outline-none px-2 py-0 flex-grow"
       />
     </div>
+    <div className="flex  mb-4 flex-col">
+      <div className="flex flex-row">
+      <label htmlFor="Defeito" className="block text-gray-700 font-bold w-1/4">
+        Categoria:
+      </label>
+      <label htmlFor="hardware">Alta</label>
+      <input
+        type="checkbox"
+        value="alta"
+        disabled={softwareChecked}
+        id="alta"
+        className="border-b border-gray-400 focus:border-primary focus:outline-none px-2 py-0 flex-grow"
+        />
+      <label htmlFor="software">Média</label>
+      <input
+        type="checkbox"
+        value="media"
+        disabled={hardwareChecked}
+        id="media"
+        className="border-b border-gray-400 focus:border-primary focus:outline-none px-2 py-0 flex-grow"
+        />
+        <label htmlFor="software">Baixa</label>
+      <input
+        type="checkbox"
+        value=""
+        disabled={hardwareChecked}
+        id=""
+        className="border-b border-gray-400 focus:border-primary focus:outline-none px-2 py-0 flex-grow"
+        />
+        </div> </div>
     <div className="flex mb-4">
       <label htmlFor="descricao" className="block text-gray-700 font-bold w-1/4">
         Justificativa:
