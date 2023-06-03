@@ -136,36 +136,28 @@ return(
         className="border-b border-gray-400 focus:border-primary focus:outline-none px-2 py-0 flex-grow"
       />
 </div>
-  </div>
-    </div>
-      <div className="flex justify-center w-full">
-        <div className="flex justify-end w-1/2">
-
-
-    {enviado && (
-      <>
-          <Navigate to="/home" replace={true} />
-      </> 
-        )}
-
-    {
-        !loading ?
-
-       (<button className="bg-blue-300 hover:bg-blue-400 hover:ring-blue-500  ring-offset-0 font-black  ring ring-blue-400 outline-none  p-1 text-white text-xl w-3/6 rounded-xl cursor-pointer"
-         onClick={cadastrarUsuario}>
-          Cadastrar
-        </button>)
-                : (
-        <div className="bg-blue-300 ring-offset-0 font-black ring ring-blue-400 flex justify-center p-1  items-center  w-3/6  text-white text-xl rounded-xl ">
-          <Loader />
-         </div>
-                )
-    }
+  <div className="flex justify-center w-full">
+    <div className="flex justify-end w-3/6">
+        {enviado && (
+            <>
+                <Navigate to="/home" replace={true} />
+            </> 
+         )}
+        {!loading ?
+          (<button className="bg-blue-300 hover:bg-blue-400 hover:ring-blue-500 ring-offset-0 font-black ring ring-blue-400 outline-none  p-1 text-white text-xl w-3/6 rounded-xl cursor-pointer"
+            onClick={cadastrarUsuario}> Cadastrar </button>)
+            : (
+            <div className="bg-blue-300 ring-offset-0 font-black ring ring-blue-400 flex justify-center p-1 items-center w-3/6 text-white text-xl rounded-xl">
+              <Loader />
+            </div>
+                  )
+          }
 </div>
-  </div>
+  </div> 
     </div>
       </div>
-
+        </div>
+          </div>
   );
 }
 

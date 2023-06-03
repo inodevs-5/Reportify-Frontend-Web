@@ -20,8 +20,6 @@ const EditarUsuario = () => {
     //enviar dados para a API
 
     setLoading(false);
-
-    history.push('/home'); // Redireciona para a página desejada
   };
 
   return (
@@ -124,10 +122,10 @@ const EditarUsuario = () => {
       <div className="flex justify-center w-full">
         <div className="flex justify-end w-1/2 ">
         {!loading ? (
-          <button className="bg-blue-300 hover:bg-blue-400 hover:ring-blue-500  ring-offset-0 font-black  ring ring-blue-400 outline-none  p-1 text-white text-xl w-3/6 rounded-xl cursor-pointer"
+          <button className="bg-blue-300 hover:bg-blue-400 hover:ring-blue-500 ring-offset-0 font-black ring ring-blue-400 outline-none p-1 text-white text-xl w-3/6 rounded-xl cursor-pointer"
             onClick={editarUser}>Editar</button>) 
           : (
-          <div className="bg-blue-300 ring-offset-0 font-black ring ring-blue-400 flex justify-center p-1  items-center  w-3/6  text-white text-xl rounded-xl ">
+          <div className="bg-blue-300 ring-offset-0 font-black ring ring-blue-400 flex justify-center p-1 items-center w-3/6 text-white text-xl rounded-xl">
             <Loader />
          </div>
                   )
