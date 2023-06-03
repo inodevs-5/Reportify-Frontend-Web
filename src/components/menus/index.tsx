@@ -34,7 +34,7 @@ const sair = () => {
         </div>
         <div className="flex w-16 flex-row justify-between">
         <div>
-          <Link to="/chat" >
+          <Link to="/contatos" >
         <FaComment className="text-white" size={24}/>
           </Link>
         </div>

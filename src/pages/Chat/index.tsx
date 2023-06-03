@@ -22,6 +22,8 @@ const Chat: React.FC = () => {
       setInputText('');
     }
   };
+
+  
   const handleKeyPress = (event) => {
     if (event.key === 'Enter') {
       handleSendMessage();
