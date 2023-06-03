@@ -160,7 +160,7 @@ return(
         theme="colored"
         />
       <h1 className="text-xl text-black  font-semibold">
-          Novo Registro de Ocorrência
+          Atualizar Status do Registro de Ocorrência
         </h1>    
         {
         !!errorMessage && 
@@ -170,84 +170,81 @@ return(
         }
         
         <div className="flex flex-col mt-4 w-3/4">
-        <div className="flex mb-4">
-      <label htmlFor="contrato" className="block text-gray-700 font-bold w-1/4">
-        Contrato:
+        
+        <div className="flex  mb-4 flex-col">
+    
+    <div className="flex  mb-4 flex-col">
+      <div className="flex flex-row">
+      <label htmlFor="Defeito" className="block text-gray-700 font-bold w-1/4">
+        Classificação:
       </label>
+      <label htmlFor="hardware">Defeito</label>
       <input
-        type="text"
-        id="contrato"
-        onChange={(event) => setContrato(event.target.value)}
+        type="checkbox"
+        value="defeito"
+        disabled={softwareChecked}
+        id="defeito"
         className="border-b border-gray-400 focus:border-primary focus:outline-none px-2 py-0 flex-grow"
-      />
-    </div>
-    <div className="flex mb-4">
-      <label htmlFor="orgao" className="block text-gray-700 font-bold w-1/4">
-        Orgão:
-      </label>
+        />
+      <label htmlFor="software">Melhoria</label>
       <input
-        type="text"
-        id="orgao"
-        onChange={(event) => setOrgao(event.target.value)}
+        type="checkbox"
+        value="melhoria"
+        disabled={hardwareChecked}
+        id="melhoria"
         className="border-b border-gray-400 focus:border-primary focus:outline-none px-2 py-0 flex-grow"
-      />
-    </div>
-    {  usuario && usuario.perfil === 'admin' && 
-      
-      <div className="flex mb-4">
-      <label htmlFor="Relator" className="block text-gray-700 font-bold w-1/4">
-        Relator:
-      </label>
-      { !loading1 ? 
-      <>
-      <select
-      name="Relator"
-      className="border-b border-gray-400 focus:border-primary focus:outline-none px-2 py-0 flex-grow"
-      onChange={e => setSelectedUser(e.target.value)}
-      id="Relator"
-      >
-    <option disabled selected>
-    Selecione
-  </option>
-      { usuarios && usuarios.map((relator) => (
-      <option key={relator._id} value={relator._id}>{relator.nome}</option>
-      ))}
-    </select>
-    </>
-    :
-       <LoaderRo/>
-      }
-    </div>}
-    <div className="flex mb-4">
-      <label htmlFor="POS./GRAD" className="block text-gray-700 font-bold w-1/4">
-        POS./GRAD:
-      </label>
+        />
+        <label htmlFor="software">Outro</label>
       <input
-        type="text"
-        id="POS_GRAD"
-        onChange={(event) => setPosGradRelator(event.target.value)}
+        type="checkbox"
+        value=""
+        disabled={hardwareChecked}
+        id=""
         className="border-b border-gray-400 focus:border-primary focus:outline-none px-2 py-0 flex-grow"
-      />
-    </div>
+        />
+        </div> </div>
+        <div className="flex  mb-4 flex-col">
+      <div className="flex flex-row">
+      <label htmlFor="Defeito" className="block text-gray-700 font-bold w-1/4">
+        Categoria:
+      </label>
+      <label htmlFor="hardware">Alta</label>
+      <input
+        type="checkbox"
+        value="defeito"
+        disabled={softwareChecked}
+        id="defeito"
+        className="border-b border-gray-400 focus:border-primary focus:outline-none px-2 py-0 flex-grow"
+        />
+      <label htmlFor="software">Média</label>
+      <input
+        type="checkbox"
+        value="melhoria"
+        disabled={hardwareChecked}
+        id="melhoria"
+        className="border-b border-gray-400 focus:border-primary focus:outline-none px-2 py-0 flex-grow"
+        />
+        <label htmlFor="software">Baixa</label>
+      <input
+        type="checkbox"
+        value=""
+        disabled={hardwareChecked}
+        id=""
+        className="border-b border-gray-400 focus:border-primary focus:outline-none px-2 py-0 flex-grow"
+        />
+        </div> </div>
+    
+
+   
+
     <div className="flex mb-4">
-      <label htmlFor="Responsavel/supervisor do centro" className="block text-gray-700 font-bold w-1/4">
-        Responsavel/centro:
+      <label htmlFor="Responsavel" className="block text-gray-700 font-bold w-1/4">
+        Responsável:
       </label>
       <input
         type="text"
         onChange={(event) => setResponsavel(event.target.value)}
-        id="Responsavel/supervisor do centro"
-        className="border-b border-gray-400 focus:border-primary focus:outline-none px-2 py-0 flex-grow"
-      />
-    </div>
-    <div className="flex mb-4">
-      <label htmlFor="Res_POS_GRAD" className="block text-gray-700 font-bold w-1/4">
-        Res.POS./GRAD:
-      </label>
-      <input
-        type="text"
-        onChange={(event) => setPosGradResponsavel(event.target.value)}
-        id="Res_POS_GRAD"
+        id="Responsave"
         className="border-b border-gray-400 focus:border-primary focus:outline-none px-2 py-0 flex-grow"
       />
     </div>
@@ -386,15 +383,44 @@ return(
     </div>
     <div className="flex mb-4">
       <label htmlFor="descricao" className="block text-gray-700 font-bold w-1/4">
-        Descrição:
+        Justificativa:
       </label>
       <input
         type="text"
-        id="descricao"
+        id="justificativa"
         onChange={(event) => setDescricao(event.target.value)}
         className="border-b border-gray-400 focus:border-primary focus:outline-none px-2 py-0 flex-grow"
       />
     </div>
+    <div className="flex flex-row">
+      <label htmlFor="Defeito" className="block text-gray-700 font-bold w-1/4">
+        Status:
+      </label>
+      <label htmlFor="hardware">Pendente</label>
+      <input
+        type="checkbox"
+        value="pendente"
+        disabled={softwareChecked}
+        id="pendente"
+        className="border-b border-gray-400 focus:border-primary focus:outline-none px-2 py-0 flex-grow"
+        />
+      <label htmlFor="software">Em andamento</label>
+      <input
+        type="checkbox"
+        value="andamento"
+        disabled={hardwareChecked}
+        id="andamento"
+        className="border-b border-gray-400 focus:border-primary focus:outline-none px-2 py-0 flex-grow"
+        />
+        <label htmlFor="software">Concluído</label>
+      <input
+        type="checkbox"
+        value="concluido"
+        disabled={hardwareChecked}
+        id="concluido"
+        className="border-b border-gray-400 focus:border-primary focus:outline-none px-2 py-0 flex-grow"
+        />
+        </div></div>
     <div className="flex justify-center w-full ">
     <div className="flex justify-end w-1/2 ">
 
