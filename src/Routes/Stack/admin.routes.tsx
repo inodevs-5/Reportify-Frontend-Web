@@ -5,6 +5,7 @@ import CadastroRo from '../../pages/CadastroRo';
 import TabelaRo from '../../pages/TabelaRO';
 import MembroSuporte from '../../pages/Membro_suporte';
 import CadastroUsuario from '../../pages/CadastroUsuario';
+import EditarUsuario from '../../pages/EditarUsuario';
 import Contatos from '../../pages/Contatos';
 import Notificacao from '../../pages/Notificacoes';
 import Backup from '../../pages/backup';
@@ -21,6 +22,7 @@ export default function Routas() {
         <Route path='/tabelaRo' element={<TabelaRo/>}/>
         <Route path='/membroSuporte' element={<MembroSuporte/>}/>
         <Route path='/cadastroUsuarios' element={<CadastroUsuario/>}/>
+        <Route path='/editarUsuarios' element={<editarUsuario/>}/>
         <Route path='/contatos' element={<Contatos/>}/>
         <Route path='/notificacao' element={<Notificacao/>}/>
     </Routes>
