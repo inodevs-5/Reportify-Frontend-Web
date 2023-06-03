@@ -1,124 +1,119 @@
-import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
-import api from '../../services/api';
+import { useEffect, useState } from "react";
+import Menu from "../../components/menus";
+import "./editar_usario.css"
+import Loader from "../../components/loader";
+import api from "../../services/api";
+import { Navigate, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-const EditarUsuario = ({ match }) => {
-  const history = useHistory();
-  const [loading, setLoading] = useState(false);
+const EditarUsuario = () => {
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
-  const [selectedPerfil, setSelectedPerfil] = useState('admin');
-  const [empresa, setEmpresa] = useState('');
-  const [contato_empresa, setContato] = useState('');
-  const id = match.params.id;
-  const perfis = [
-    { label: 'Administrador', value: 'administrador' },
-    { label: 'Cliente', value: 'cliente' },
-  ];
-  const [selectedEmpresa, getSelectedEmpresa] = useState('empresa1');
+  const [perfil, setPerfil] = useState('administrador');
+  const [empresa, setEmpresa] = useState('empresa1');
+  const [senha, setSenha] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  const editarUser = async () => {
+  const editarUser = () => {
     setLoading(true);
-    try {
-      const response = await api.put(`/usuario/${id}`, {
-        nome,
-        email,
-        selectedPerfil,
-        empresa,
-        contato_empresa
-      });
-      alert(response.data.msg);
-      history.push('/home');
-    } catch (error) {
-      alert(error.response.data.msg);
-    }
+
+    //enviar dados para a API
+
     setLoading(false);
+
+    history.push('/home'); // Redireciona para a página desejada
   };
 
-  useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const response = await api.get(`/usuario/${id}`);
-        setNome(response.data.nome);
-        setEmail(response.data.email);
-        setSelectedPerfil(response.data.perfil);
-        setEmpresa(response.data.empresa);
-        setContato(response.data.contato_empresa);
-        setLoading(false);
-      } catch (error) {
-        alert(error.response.data.msg);
-      }
-    };
-    fetchUser();
-  }, [id]);
-
   return (
-    <>
-      {!loading ? (
-        <div className="container">
-          <h1 className="title">Editar Usuário</h1>
-          <div className="form-container">
-            <div className="input-container">
-              <label htmlFor="nome">Nome*</label>
-              <input
-                type="text"
-                id="nome"
-                value={nome}
-                onChange={(e) => setNome(e.target.value)}
-              />
-            </div>
-            <div className="input-container">
-              <label htmlFor="email">Email*</label>
-              <input
-                type="email"
-                id="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
-            <div className="input-container">
-              <label htmlFor="perfil">Perfil*</label>
-              <select
-                id="perfil"
-                value={selectedPerfil}
-                onChange={(e) => setSelectedPerfil(e.target.value)}
-              >
-                {perfis.map((perfil) => (
-                  <option value={perfil.value} key={perfil.value}>
-                    {perfil.label}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div className="input-container">
-              <label htmlFor="empresa">Empresa*</label>
-              <input
-                type="text"
-                id="empresa"
-                value={empresa}
-                onChange={(e) => setEmpresa(e.target.value)}
-              />
-            </div>
-            <div className="input-container">
-              <label htmlFor="contato_empresa">Contato da Empresa*</label>
-              <input
-                type="text"
-                id="contato_empresa"
-                value={contato_empresa}
-                onChange={(e) => setContato(e.target.value)}
-              />
-            </div>
-            <button className="button" onClick={editarUser}>
-              Editar
-            </button>
-          </div>
-        </div>
-      ) : (
-        <div className="loading-container">
-          <div className="loading-spinner"></div>
-        </div>
-      )}
-    </>
+  <div className="flex flex-wrap flex-row">
+      <div>
+    <Menu/>
+    </div>
+    {/* {conteudo fica aqui} */}
+    <div id="conteusdo" className="mt-16 w-full flex-1">
+      <div className="p-10 flex items-center flex-col">
+        <ToastContainer
+        position="bottom-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+        />
+      <h1 className="text-xl text-black  font-semibold">
+          Editar Usuário
+        </h1>    
+
+        <div>
+        <label>Nome</label>
+        <input
+          type="text"
+          placeholder=""
+          value={nome}
+          onChange={(e) => setNome(e.target.value)}
+        />
+      </div>
+
+      <div>
+        <label>Email</label>
+        <input
+          type="text"
+          placeholder=""
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+      </div>
+
+      <div>
+        <label>Perfil</label>
+        <input
+          type="text"
+          placeholder=""
+          value={perfil}
+          onChange={(e) => setPerfil(e.target.value)}
+        />
+      </div>
+
+      <div>
+        <label>Empresa</label>
+        <input
+          type="text"
+          placeholder=""
+          value={empresa}
+          onChange={(e) => setEmpresa(e.target.value)}
+        />
+      </div>
+
+      <div>
+        <label>Contato da Empresa</label>
+        <input type="text" placeholder="" />
+      </div>
+
+      <div>
+        <label>Senha</label>
+        <input
+          type="password"
+          placeholder=""
+          value={senha}
+          onChange={(e) => setSenha(e.target.value)}
+        />
+      </div>
+
+      <div>
+        {!loading ? (
+          <button onClick={editarUser}>Editar</button>
+        ) : (
+          <div>Loading...</div>
+        )}
+      </div>
+    </div>
+    </div>
+    </div>
   );
 };
 

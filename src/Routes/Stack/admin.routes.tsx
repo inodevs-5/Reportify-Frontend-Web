@@ -22,7 +22,7 @@ export default function Routas() {
         <Route path='/tabelaRo' element={<TabelaRo/>}/>
         <Route path='/membroSuporte' element={<MembroSuporte/>}/>
         <Route path='/cadastroUsuarios' element={<CadastroUsuario/>}/>
-        <Route path='/editarUsuarios' element={<editarUsuario/>}/>
+        <Route path='/editarUsuarios' element={<EditarUsuario/>}/>
         <Route path='/contatos' element={<Contatos/>}/>
         <Route path='/notificacao' element={<Notificacao/>}/>
     </Routes>
