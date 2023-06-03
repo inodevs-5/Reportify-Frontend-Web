@@ -23,7 +23,7 @@ const Notificacao: React.FC = () => {
       <Menu></Menu>
       <div id="conteudo" className="mt-16  bg-white flex-1 ">
         <div className="p-10 flex  flex-col">
-          <h1 id="alinhatitulo">Notificações</h1>
+          <h1 id="alinhatitulonot">Notificações</h1>
         </div>
       </div>
     </div><div id="conteudo2">

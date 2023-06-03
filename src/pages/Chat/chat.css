@@ -17,10 +17,14 @@
     overflow-y: auto; /* Adiciona uma barra de rolagem quando o conteúdo ultrapassar a altura definida */
     
   }
-  
-  #alinhatitulo{
-    margin-left: 46.5%;
+
+#alinhahr{
+  margin-left: 6.5rem;
 }
+   
+  #alinhatitulochat{
+    margin-left: 44%;
+} 
 
   .messages-container {
     flex-grow: 1;

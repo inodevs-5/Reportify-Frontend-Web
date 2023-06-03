@@ -36,7 +36,8 @@ const Chat: React.FC = () => {
           <Menu></Menu>
           <div id="conteudo" className="mt-16  bg-white flex-1 ">
               <div className="p-10 flex flex-col">
-                  <h1 id="alinhatitulo" >Chat</h1>
+                  <h1 id="alinhatitulochat" >Chat</h1>
+                  <hr id="alinhahr"/>
               </div>
           </div>
       </div>

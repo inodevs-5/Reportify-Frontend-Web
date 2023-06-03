@@ -16,7 +16,8 @@ function Contatos() {
       <Menu></Menu>
       <div id="conteudo" className="mt-16  bg-white flex-1">
         <div className="p-10 flex flex-col">
-          <h1 id="alinhatitulo" >Meus Chats</h1>
+          <h1 id="alinhatitulocontatos" >Meus Chats</h1>
+          
         </div>
       </div>
     </div><div id="conteudo2">
