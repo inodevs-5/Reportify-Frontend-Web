@@ -12,11 +12,17 @@
     margin-bottom: 2rem;
 }
 
+#alinhatitulo{
+    margin-left: 44%;
+}
+
 
 
 @media (max-width: 768px) {
     #conteudo{
         margin-left: 0rem;
     }
-  }   
+  }  
+  
+
 
