@@ -6,9 +6,9 @@ import TabelaRo from '../../pages/TabelaRO';
 import MembroSuporte from '../../pages/Membro_suporte';
 import CadastroUsuario from '../../pages/CadastroUsuario';
 import Contatos from '../../pages/Contatos';
-import Notificacao from '../../pages/Notificacoes';
 import Chat from '../../pages/Chat';
 import EditarUsuario from '../../pages/EditarUsuario';
+import Notificacoes from '../../pages/Notificacoes';
 
 
 export default function AdminRoutes() {
@@ -22,7 +22,7 @@ export default function AdminRoutes() {
         <Route path='/cadastroUsuarios' element={<CadastroUsuario/>}/>
         <Route path='/editarUsuarios' element={<EditarUsuario/>}/>
         <Route path='/contatos' element={<Contatos/>}/>
-        <Route path='/notificacao' element={<Notificacao/>}/>
+        <Route path='/notificacoes' element={<Notificacoes/>}/>
         <Route path='/chat' element={<Chat/>}/>
 
     </Routes>

@@ -1,42 +1,50 @@
-import React from 'react';
 import Menu from "../../components/menus";
-//import "../../styles/global.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import api from '../../services/api';
+import { useAuth } from '../../contexts/auth';
 import "./notificacoes.css";
 
-interface Notification {
-  title: string;
-  
-  datetime: Date;
-}
+function Notificacoes () {
+  const { usuario } = useAuth();
 
-const notifications: Notification[] = [
-  { title: 'Mensagem recebida', datetime: new Date() },
-  { title: 'Atualização de RO 01',  datetime: new Date() },
-  { title: 'Mensagem recebida',  datetime: new Date() },
- 
-];
+  //Inicio da lógica para as notificações:
+  const [loading, setLoading] = useState(true);
+  const [notificacoes, setNotificacoes] = useState([]);
 
-const Notificacao: React.FC = () => {
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await api.get('/usuario/' + usuario._id);
+        console.log(response.data)
+        setNotificacoes(response.data.notificacoes);
+        setLoading(false)
+      } catch (response) {
+        console.log(response.data.msg);
+      }
+    })();
+  }, []);
+
   return (
-    <><div className="flex flex-wrap flex-row">
-      <Menu></Menu>
-      <div id="conteudo" className="mt-16  bg-white flex-1 ">
-        <div className="p-10 flex  flex-col">
-          <h1 id="alinhatitulonot">Notificações</h1>
+    <>
+      <div className="flex flex-wrap flex-row">
+        <Menu></Menu>
+        <div id="conteudo" className="mt-16  bg-white flex-1 ">
+          <div className="p-10 flex  flex-col">
+            <h1 id="alinhatitulonot">Notificações</h1>
+          </div>
         </div>
       </div>
-    </div><div id="conteudo2">
-
-        {notifications.map((notification, index) => (
+      {notificacoes && !loading && notificacoes.length < 1 && <div>Não há nenhuma notificação</div>}
+      <div id="conteudo2">
+        {notificacoes && notificacoes.map((notification, index) => (
           <div id="notificacoes" key={index}>
-            <h2>{notification.title}</h2>
-            <p>{notification.datetime.toLocaleString()}</p>
-            {index !== notifications.length - 1 && <hr />}
+            <h2>{notification.mensagem}</h2>
+            <h2>{notification.data.toLocaleString()}</h2>
           </div>
         ))}
-      </div></>
+      </div>
+    </>
   );
-};
+}
 
-export default Notificacao;
+export default Notificacoes
