@@ -13,7 +13,6 @@ const { usuario, signOut } = useAuth();
 
 const isopen = () => {
   setOpen(!open)
-  console.log("passei")
 }
 
 const sair = () => {

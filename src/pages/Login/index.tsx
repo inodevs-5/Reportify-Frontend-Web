@@ -73,7 +73,9 @@ function Login() {
           <div className="flex flex-row items-center justify-around">
             <div>
               <button className="outline-none">
+              <Link to="/emailRedefinicao" >
                 <p className="text-blue-800 text-center cursor-pointer" >Esqueci a senha</p>
+              </Link>
               </button>
             </div>
             {
