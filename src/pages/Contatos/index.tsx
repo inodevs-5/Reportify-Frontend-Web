@@ -6,9 +6,9 @@ import "./contatos.css"
 
 function Contatos() {
   const conversas = [
-    { id: 1, titulo: 'Conversa 1', ultimaMensagem: 'Última mensagem da conversa 1' },
-    { id: 2, titulo: 'Conversa 2', ultimaMensagem: 'Última mensagem da conversa 2' },
-    { id: 3, titulo: 'Conversa 3', ultimaMensagem: 'Última mensagem da conversa 3' },
+    { id: 1, nome: 'Pessoa 1', titulo: 'RO1' },
+    { id: 2, nome: 'Pessoa 2', titulo: 'RO2' },
+    { id: 3, nome: 'Pessoa 3', titulo: 'RO3' },
   ];
 
   return (
@@ -23,8 +23,8 @@ function Contatos() {
 
         {conversas.map((conversa) => (
           <div id = "mensagens" key={conversa.id}>
-           <a href = "../Chat"><h2 >{conversa.titulo}</h2></a>
-            <p>{conversa.ultimaMensagem}</p>
+           <a href = "../Chat"><h2 >{conversa.nome}</h2></a>
+            <p>{conversa.titulo}</p>
             <hr /> {/* Linha separando as conversas */}
           </div>
         ))}

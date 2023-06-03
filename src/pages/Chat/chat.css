@@ -13,10 +13,14 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    height: 500px; /* Ajuste o valor de acordo com suas preferências */
+    height: 500px; 
     overflow-y: auto; /* Adiciona uma barra de rolagem quando o conteúdo ultrapassar a altura definida */
     
   }
+  
+  #alinhatitulo{
+    margin-left: 46.5%;
+}
 
   .messages-container {
     flex-grow: 1;

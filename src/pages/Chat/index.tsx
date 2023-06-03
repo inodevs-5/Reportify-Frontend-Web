@@ -35,8 +35,8 @@ const Chat: React.FC = () => {
     <><div className="flex flex-wrap flex-row">
           <Menu></Menu>
           <div id="conteudo" className="mt-16  bg-white flex-1 ">
-              <div className="p-10 flex items-center flex-col">
-                  <h1>Chat</h1>
+              <div className="p-10 flex flex-col">
+                  <h1 id="alinhatitulo" >Chat</h1>
               </div>
           </div>
       </div>
