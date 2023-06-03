@@ -8,6 +8,7 @@ import CadastroUsuario from '../../pages/CadastroUsuario';
 import Contatos from '../../pages/Contatos';
 import Notificacao from '../../pages/Notificacoes';
 import Backup from '../../pages/backup';
+import Dashboard from '../../pages/Dashboard';
  
 
 export default function Routas() {
@@ -23,6 +24,7 @@ export default function Routas() {
         <Route path='/cadastroUsuarios' element={<CadastroUsuario/>}/>
         <Route path='/contatos' element={<Contatos/>}/>
         <Route path='/notificacao' element={<Notificacao/>}/>
+        <Route path='/dashboard' element={<Dashboard/>}/>
     </Routes>
         )
 }
