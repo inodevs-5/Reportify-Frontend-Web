@@ -147,12 +147,12 @@ useEffect(() => {
           {  
          usuario.perfil == 'admin' ?
           <>
-            <div className="flex w-full max-h-80  rounded-xl overflow-auto border-y border-slate-600 shadow-xl my-2 justify-center">
+            <div  className="flex  max-h-80 w-full  rounded-xl overflow-auto border-y border-slate-600 shadow-xl my-2 justify-center">
               
               { selectedSecondButton ? <>    
                 { allRos && !loading ?(
                   
-                  <table className="w-full   md:table-fixed table-fixed ">
+                  <table className="table-fixed  w-full">
               <thead>
                 <tr className="text-center border border-slate-600 bg-gradient-to-r from-zinc-800 to-zinc-700 text-gray-50  text-xl">
                   <th className="border border-slate-700">ID</th>
@@ -318,13 +318,13 @@ useEffect(() => {
      </>
       :
      <>
-         <div className="flex w-full max-h-80  rounded-xl overflow-auto border-y border-slate-600 shadow-xl my-2 justify-center">
+         <div id="tabelda" className="flex w-full max-h-80  rounded-xl overflow-auto border-y border-slate-600 shadow-xl my-2 justify-center">
           { ros && !loading ?
           <> { ros.length == 0 ?  <h1 className="text-3xl text-red-800 font-black ">
           {usuario.nome} você não posssui ros atribuidos
          </h1> :
                   
-                  <table className="w-full   md:table-fixed table-fixed ">
+            <table className="md:table-fixed table-fixed ">
               <thead>
                 <tr className="text-center border border-slate-600 bg-gradient-to-r from-zinc-800 to-zinc-700 text-gray-50  text-xl">
                   <th className="border border-slate-700">ID</th>

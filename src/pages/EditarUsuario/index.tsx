@@ -9,8 +9,8 @@ import 'react-toastify/dist/ReactToastify.css';
 const EditarUsuario = () => {
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
-  const [perfil, setPerfil] = useState('administrador');
-  const [empresa, setEmpresa] = useState('empresa1');
+  const [perfil, setPerfil] = useState('');
+  const [empresa, setEmpresa] = useState('');
   const [senha, setSenha] = useState('');
   const [loading, setLoading] = useState(false);
 

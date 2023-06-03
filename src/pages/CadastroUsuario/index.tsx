@@ -7,24 +7,33 @@ import { Navigate, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+interface Perfil { // para o picker (select)
+  label: string;
+  value: string;
+}
+
+
 function CadastroUsuario () {
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
-  const [perfil, setPerfil] = useState('');
+  const [perfil, setPerfil] = useState('cliente');
+  const [selectedPerfil, setSelectedPerfil] = useState('cliente');
   const [empresa, setEmpresa] = useState('');
+  const [contato_empresa, setConato_empresa] = useState('');
   const [errorMessage, setErrorMessage] = useState(null);
   const [loading, setLoading] = useState(false);
   const [enviado , setEnviado] = useState(false)
 
+  const perfis: Perfil[] = [
+    { label: 'Administrador', value: 'admin' },
+    { label: 'Cliente', value: 'cliente' },
+   ];
+
   async function cadastrarUsuario() {
     setLoading(true);
     try {
-      const data = new FormData();
-
-      data.append('nome', nome);
-      data.append('email', email);
-      data.append('perfil', perfil);
-      data.append('empresa', empresa);
+      const response = await api.post('/usuario', {nome, 
+        email, perfil, empresa, contato_empresa })
       
       
       roni()
@@ -118,12 +127,19 @@ return(
         <label htmlFor="perfil" className="block text-gray-700 font-bold w-1/4">
           Perfil:
         </label>
-      <input
-        type="text"
-        id="perfil"
-        onChange={(event) => setPerfil(event.target.value)}
-        className="border-b border-gray-400 focus:border-primary focus:outline-none px-2 py-0 flex-grow"
-      />
+        <select
+      name="perfil"
+      className="border-b border-gray-400 focus:border-primary focus:outline-none px-2 py-0 flex-grow"
+      onChange={e => setPerfil(e.target.value)}
+      id="perfil"
+      >
+    <option disabled selected>
+    Selecione
+  </option>
+      { perfis && perfis.map((relator) => (
+      <option key={relator.value} value={relator.value}>{relator.label}</option>
+      ))}
+    </select>
     </div>
       <div className="flex mb-4">
         <label htmlFor="empresa" className="block text-gray-700 font-bold w-1/4">
@@ -135,7 +151,18 @@ return(
         onChange={(event) => setEmpresa(event.target.value)}
         className="border-b border-gray-400 focus:border-primary focus:outline-none px-2 py-0 flex-grow"
       />
-</div>
+    </div>
+    <div className="flex mb-4">
+        <label htmlFor="contato" className="block text-gray-700 font-bold w-1/4">
+          Contato Empresa:
+        </label>
+      <input
+        type="text"
+        id="contato"
+        onChange={(event) => setConato_empresa(event.target.value)}
+        className="border-b border-gray-400 focus:border-primary focus:outline-none px-2 py-0 flex-grow"
+      />
+    </div>
   <div className="flex justify-center w-full">
     <div className="flex justify-end w-3/6">
         {enviado && (
