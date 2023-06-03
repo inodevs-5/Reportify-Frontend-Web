@@ -8,6 +8,7 @@ import CadastroUsuario from '../../pages/CadastroUsuario';
 import Contatos from '../../pages/Contatos';
 import Notificacao from '../../pages/Notificacoes';
 import Chat from '../../pages/Chat';
+import EditarUsuario from '../../pages/EditarUsuario';
 
 
 export default function AdminRoutes() {
@@ -19,6 +20,7 @@ export default function AdminRoutes() {
         <Route path='/tabelaRo' element={<TabelaRo/>}/>
         {/* <Route path='/membroSuporte' element={<MembroSuporte/>}/> */}
         <Route path='/cadastroUsuarios' element={<CadastroUsuario/>}/>
+        <Route path='/editarUsuarios' element={<EditarUsuario/>}/>
         <Route path='/contatos' element={<Contatos/>}/>
         <Route path='/notificacao' element={<Notificacao/>}/>
         <Route path='/chat' element={<Chat/>}/>
