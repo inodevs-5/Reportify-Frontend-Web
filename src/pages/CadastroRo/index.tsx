@@ -356,7 +356,7 @@ return(
        className="border-b border-gray-400 focus:border-primary focus:outline-none px-2 py-0 flex-grow"
        />
      </div>
-     { usuario && usuario.perfil === 'cliente' &&
+     {/* { usuario && usuario.perfil === 'cliente' && */}
      <div className="flex mb-4">
      <label htmlFor="log_anexados" className="block text-gray-700 font-bold w-1/4">
        Logs Anexos
@@ -368,7 +368,8 @@ return(
        onChange={(event) => setLogsAnexados(event.target.files[0])}
        className="border-b border-gray-400 focus:border-primary focus:outline-none px-2 py-0 flex-grow"
        />
-     </div>}
+     </div>
+     {/* } */}
       </>
     )
 
