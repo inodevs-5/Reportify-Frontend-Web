@@ -43,6 +43,14 @@ export const AuthProvider = ({children}) => {
         setUsuario(null); 
     }
 
+    async function updateEmail() {
+        if (usuario) {
+            const updatedUsuario = {...usuario, email_notificacao: !usuario.email_notificacao}
+            await localStorage.setItem('@Reportify:usuario', JSON.stringify(updatedUsuario));
+            setUsuario(updatedUsuario)
+        }
+    }
+
     return (
     <AuthContext.Provider value={{signed: !!usuario, usuario, signIn, signOut, loading}}>
         {children}

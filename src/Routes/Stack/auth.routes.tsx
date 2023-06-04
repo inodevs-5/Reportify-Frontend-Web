@@ -13,6 +13,7 @@ import RedefinirSenha from '../../pages/RedefinirSenha';
 import EmailRedefinicao from '../../pages/EmailRedefinicao';
 import EditarUsuario from '../../pages/EditarUsuario';
 import Notificacoes from '../../pages/Notificacoes';
+import Perfil from '../../pages/Perfil';
 
 
 export default function AdminRoutes() {
@@ -32,6 +33,7 @@ export default function AdminRoutes() {
         <Route path='/forceBackup' element={<Backup/>}/>
         <Route path='/emailRedefinicao' element={<EmailRedefinicao/>}/>
         <Route path="/senha/:id/:firstTime" element={<RedefinirSenha />}/>
+        <Route path='/perfil' element={<Perfil/>}/>
     </Routes>
         )
 }

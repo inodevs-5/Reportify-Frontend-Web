@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import "../../styles/global.css";
 import "./lado.css"
-import { FaComment, FaBell, FaBars, FaTimes  } from 'react-icons/fa';
+import { FaComment, FaBell, FaBars, FaTimes, FaUser } from 'react-icons/fa';
 import { useState, useEffect } from "react";
 import { useAuth } from "../../contexts/auth";
 import api from '../../services/api';
@@ -85,6 +85,13 @@ function Menu() {
             </div>
           </>
         )}
+       <div className="flex items-center">
+            <Link to="/perfil">
+              <FaUser className="text-white"  size={24}/>
+            </Link>
+            <div className="absolute top-4 right-9 w-4 h-4 bg-red-500 rounded-full"></div>
+          <div className="numero absolute right-10">{mostrarNotificacao}</div>
+        </div>
       </div>
 
       </div>
