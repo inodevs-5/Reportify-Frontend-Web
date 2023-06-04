@@ -1,5 +1,4 @@
 // import Login from '../../pages/Login';
-import Home from '../../pages/Home'
 import {Routes , Route}  from "react-router-dom";
 import CadastroRo from '../../pages/CadastroRo';
 import TabelaRo from '../../pages/TabelaRO';
@@ -18,9 +17,8 @@ import RedefinirSenha from '../../pages/RedefinirSenha';
 export default function Routas() {
         return(
     <Routes>
-        <Route path='/' element={<Home/>}/>
-        <Route path='*' element={<Home/>}/>
-        <Route path='/home' element={<Home/>}/>
+        <Route path='/' element={<TabelaRo/>}/>
+        <Route path='*' element={<TabelaRo/>}/>
         {/* <Route path="backup" element={<Backup/>}/> */}
         <Route path='/CadastroRo' element={<CadastroRo/>}/>
         <Route path='/tabelaRo' element={<TabelaRo/>}/>
@@ -28,7 +26,7 @@ export default function Routas() {
         <Route path='/cadastroUsuarios' element={<CadastroUsuario/>}/>
         <Route path='/editar/:_id' element={<EditarUsuario/>}/>
         <Route path='/contatos' element={<Contatos/>}/>
-        <Route path='/notificacao' element={<Notificacao/>}/>
+        <Route path='/notificacoes' element={<Notificacao/>}/>
         <Route path='/dashboard' element={<Dashboard/>}/>
         <Route path='/forceBackup' element={<Backup/>}/>
         <Route path='/emailRedefinicao' element={<EmailRedefinicao/>}/>

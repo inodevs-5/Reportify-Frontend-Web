@@ -2,25 +2,58 @@ import { Link, useNavigate } from "react-router-dom";
 import "../../styles/global.css";
 import "./lado.css"
 import { FaComment, FaBell, FaBars, FaTimes  } from 'react-icons/fa';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAuth } from "../../contexts/auth";
+import api from '../../services/api';
 // import { useState } from "react";
 
 
 function Menu() {
-const [open , setOpen] = useState(false)
-const { usuario, signOut } = useAuth();
+  const [open , setOpen] = useState(false)
+  const { usuario, signOut } = useAuth();
 
-const isopen = () => {
-  setOpen(!open)
-}
+  const navigation = useNavigate();
 
-const sair = () => {
-  window.location.reload();
-  signOut()
-}
+  const isopen = () => {
+    setOpen(!open)
+  }
 
+  const sair = () => {
+    window.location.reload();
+    signOut()
+  }
 
+    
+  const [mostrarNotificacao, setMostrarNotificacao] = useState('');
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await api.get('/notificacao/'+ usuario._id);
+        const constanteBackend = response.data.numeroNotificacoes;
+        setMostrarNotificacao(constanteBackend);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    const intervalId = setInterval(fetchData, 1000); // Buscar dados a cada 10 segundos
+
+    return () => {
+      clearInterval(intervalId); // Limpar o intervalo quando o componente for desmontado
+    };
+  }, []);
+
+  const marcarNotificacao = async () => {
+    try {
+      const response = await api.post('/notificacao/', {id:usuario._id});
+      // navigation('/notificacoes')
+
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  
 
   return (
     <div className="flex relative flex-wrap">
@@ -33,21 +66,28 @@ const sair = () => {
           <h1 className="text-3xl text-white" >Reportify</h1>
         </div>
         <div className="flex w-16 flex-row justify-between">
-        <div>
-          <Link to="/contatos" >
-        <FaComment className="text-white" size={24}/>
-          </Link>
-        </div>
-        <div className="flex items-center">
-        <Link to="/notificacao">
-        <FaBell className="text-white"  size={24} />
-        </Link>
-        <div className="absolute top-5 right-0 w-3 h-3 bg-red-500 rounded-full"></div>
-        </div>
-        </div>
+        {mostrarNotificacao === 0 ?(
+          <>
+            <div className="flex items-center">
+              <Link to="/notificacoes">
+                <FaBell className="text-white"  size={24}/>
+              </Link>
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="flex items-center">
+              <Link to="/notificacoes" onClick={marcarNotificacao} >
+                <FaBell className="text-white"  size={24}/>
+              </Link>
+              <div className="absolute top-4 right-9 w-4 h-4 bg-red-500 rounded-full"></div>
+              <div className="numero absolute right-10">{mostrarNotificacao}</div>
+            </div>
+          </>
+        )}
       </div>
       </div>
-
+      </div>
       <div id="lado" className=" bg-primary min-h-screen fixed flex flex-col">
       <div className="text-white font-bold text-xl "></div>
       <div className="flex-1">
@@ -70,9 +110,6 @@ const sair = () => {
         </li>}
         <li className="py-3 rounded-xl text-center  mt-4 ring-1 hover:bg-secondary cursor-pointer ring-black-300 shadow-2xl">
         <Link to="/contatos" className="text-gray-400 p-4 hover:text-white px-16 ">Meus Chats</Link>
-        </li>
-        <li className="py-3 rounded-xl text-center  mt-4 ring-1 hover:bg-secondary cursor-pointer ring-black-300 shadow-2xl">
-        <Link to="/home" className="text-gray-400 p-4 w-full hover:text-white px-16 ">Home</Link>
         </li>
         {usuario && usuario.perfil === 'admin' &&
         <>  
@@ -122,9 +159,6 @@ const sair = () => {
         </li>}
         <li className="py-3 rounded-xl text-center  mt-4 ring-1 hover:bg-secondary cursor-pointer ring-black-300 shadow-2xl">
         <Link to="/contatos" className="text-gray-400 p-4 hover:text-white">Meus Chats</Link>
-        </li>
-        <li className="py-3 rounded-xl text-center  mt-4 ring-1 hover:bg-secondary cursor-pointer ring-black-300 shadow-2xl">
-        <Link to="/home" className="text-gray-400 p-4 hover:text-white">Home</Link>
         </li>
         {usuario && usuario.perfil === 'admin' &&
         <li className="py-3 rounded-xl text-center  mt-4 ring-1 hover:bg-secondary cursor-pointer ring-black-300 shadow-2xl">
