@@ -15,7 +15,6 @@ import 'react-toastify/dist/ReactToastify.css';
 // import Alert from '@mui/material/Alert';
 // import Stack from '@mui/material/Stack';
 
-
 function CadastroRo () {
   const { usuario } = useAuth();
   const [contrato, setContrato] = useState('');
@@ -231,7 +230,7 @@ return(
     </div>
     <div className="flex mb-4">
       <label htmlFor="Responsavel/supervisor do centro" className="block text-gray-700 font-bold w-1/4">
-        Responsavel/centro:
+        Responsável/Centro:
       </label>
       <input
         type="text"
@@ -376,7 +375,7 @@ return(
     }
     <div className="flex mb-4">
       <label htmlFor="titulo" className="block text-gray-700 font-bold w-1/4">
-        Titulo:
+        Título:
       </label>
       <input
         type="text"

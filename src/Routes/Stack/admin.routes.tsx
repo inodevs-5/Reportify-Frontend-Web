@@ -1,5 +1,4 @@
 // import Login from '../../pages/Login';
-import Home from '../../pages/Home'
 import {Routes , Route}  from "react-router-dom";
 import CadastroRo from '../../pages/CadastroRo';
 import TabelaRo from '../../pages/TabelaRO';
@@ -7,7 +6,8 @@ import ListagemUsuario from '../../pages/Membro_suporte';
 import CadastroUsuario from '../../pages/CadastroUsuario';
 import EditarUsuario from '../../pages/EditarUsuario';
 import Contatos from '../../pages/Contatos';
-import Notificacao from '../../pages/Notificacoes';
+import Notificacoes from '../../pages/Notificacoes';
+import Chat from '../../pages/Chat';
 import Dashboard from '../../pages/Dashboard';
 import Backup from '../../pages/Backup';
 import EmailRedefinicao from '../../pages/EmailRedefinicao';
@@ -19,9 +19,8 @@ import EditaRos from '../../pages/EditarRo';
 export default function Routas() {
         return(
     <Routes>
-        <Route path='/' element={<Home/>}/>
-        <Route path='*' element={<Home/>}/>
-        <Route path='/home' element={<Home/>}/>
+        <Route path='/' element={<TabelaRo/>}/>
+        <Route path='*' element={<TabelaRo/>}/>
         {/* <Route path="backup" element={<Backup/>}/> */}
         <Route path='/CadastroRo' element={<CadastroRo/>}/>
         <Route path='/tabelaRo' element={<TabelaRo/>}/>
@@ -30,7 +29,8 @@ export default function Routas() {
         <Route path='/editarRO/:_id' element={<EditaRos/>}/>
         <Route path='/editar/:_id' element={<EditarUsuario/>}/>
         <Route path='/contatos' element={<Contatos/>}/>
-        <Route path='/notificacao' element={<Notificacao/>}/>
+        <Route path='/notificacoes' element={<Notificacoes/>}/>
+        <Route path='/chat/:id' element={<Chat/>}/>
         <Route path='/dashboard' element={<Dashboard/>}/>
         <Route path='/forceBackup' element={<Backup/>}/>
         <Route path='/emailRedefinicao' element={<EmailRedefinicao/>}/>

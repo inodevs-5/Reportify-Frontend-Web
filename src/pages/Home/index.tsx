@@ -65,7 +65,7 @@ function Home() {
      <th className="border border-slate-700">Título</th>
      <th className="border border-slate-700">Status</th>
      <th className="border border-slate-700">Colaborador</th>
-     <th className="border border-slate-700">Responsavel</th>
+     <th className="border border-slate-700">Responsável</th>
      <th className="border border-slate-700">Editar</th>
    </tr>
  </thead>
