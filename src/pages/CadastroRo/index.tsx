@@ -230,7 +230,7 @@ return(
     </div>
     <div className="flex mb-4">
       <label htmlFor="Responsavel/supervisor do centro" className="block text-gray-700 font-bold w-1/4">
-        Responsavel/centro:
+        Responsável/Centro:
       </label>
       <input
         type="text"
@@ -375,7 +375,7 @@ return(
     }
     <div className="flex mb-4">
       <label htmlFor="titulo" className="block text-gray-700 font-bold w-1/4">
-        Titulo:
+        Título:
       </label>
       <input
         type="text"

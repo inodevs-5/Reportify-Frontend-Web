@@ -1,23 +1,32 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 // import { useAuth } from "../../contexts/auth";
 import { FaEyeSlash, FaEye } from 'react-icons/fa';
 import "../../styles/global.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Loader from "../../components/loader";
 import { useAuth } from "../../contexts/auth";
 import { useNavigate } from "react-router-dom";
 
 
 function Login() {
-
+  const location = useLocation()
+  
   const { signIn } = useAuth();
   const navigate = useNavigate()
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
+  const [successMessage, setSuccessMessage] = useState('');
   const [hidepass, setHidepass] = useState(false);
 
+  useEffect(() => {
+      if (location.state) {
+          setSuccessMessage(location.state.msg)
+          setTimeout(() => setSuccessMessage(''), 5000);
+          window.history.replaceState({}, document.title)
+      }
+  }, [location.state])
 
   async function entrar() {
     setLoading(true);
@@ -40,9 +49,10 @@ function Login() {
 
   return (
     <div className="h-screen bg-gray-100 w-screen flex-col flex items-center justify-center">
-      {!!errorMessage && <h1 className="text-red-800 text-2xl">{errorMessage}</h1>}
       <div className="w-2/3 h-4/5 flex justify-center items-center flex-col p-8">
         <h1 className="text-blue-900  text-7xl font-black mb-4" >Reportify</h1>
+        {errorMessage && <p className="mb-5 text-red-600 my-5">{errorMessage}</p>}
+        {successMessage && <p className="mb-5 text-green-500 my-5">{successMessage}</p>}
         <h2 className="text-4xl text-center text-blue-900 font-bold mb-8">Login</h2>
         <div  className="grid gap-11">
           <div>
@@ -73,7 +83,9 @@ function Login() {
           <div className="flex flex-row items-center justify-around">
             <div>
               <button className="outline-none">
+              <Link to="/emailRedefinicao" >
                 <p className="text-blue-800 text-center cursor-pointer" >Esqueci a senha</p>
+              </Link>
               </button>
             </div>
             {
