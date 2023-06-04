@@ -12,7 +12,7 @@ function Login() {
   const location = useLocation()
   
   const { signIn } = useAuth();
-  const navigate = useNavigate
+  const navigate = useNavigate()
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [loading, setLoading] = useState(false);
@@ -32,7 +32,7 @@ function Login() {
     setLoading(true);
     try {
       await signIn(email, senha);
-      navigate('/home')
+      navigate('/')
 
     } catch (response) {
       setErrorMessage(response.data.msg);

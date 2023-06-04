@@ -6,11 +6,13 @@ import TabelaRo from '../../pages/TabelaRO';
 import MembroSuporte from '../../pages/Membro_suporte';
 import CadastroUsuario from '../../pages/CadastroUsuario';
 import Contatos from '../../pages/Contatos';
+import Chat from '../../pages/Chat';
 import Notificacao from '../../pages/Notificacoes';
 import Backup from '../../pages/Backup';
 import RedefinirSenha from '../../pages/RedefinirSenha';
 import EmailRedefinicao from '../../pages/EmailRedefinicao';
 import EditarUsuario from '../../pages/EditarUsuario';
+import Notificacoes from '../../pages/Notificacoes';
 
 
 export default function AdminRoutes() {
@@ -24,6 +26,8 @@ export default function AdminRoutes() {
         <Route path='/cadastroUsuarios' element={<CadastroUsuario/>}/>
         <Route path='/editarUsuarios' element={<EditarUsuario/>}/>
         <Route path='/contatos' element={<Contatos/>}/>
+        <Route path='/notificacoes' element={<Notificacoes/>}/>
+        <Route path='/chat/:id' element={<Chat/>}/>
         <Route path='/notificacao' element={<Notificacao/>}/>
         <Route path='/forceBackup' element={<Backup/>}/>
         <Route path='/emailRedefinicao' element={<EmailRedefinicao/>}/>

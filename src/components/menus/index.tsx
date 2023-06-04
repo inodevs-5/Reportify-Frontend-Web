@@ -39,7 +39,7 @@ const sair = () => {
           </Link>
         </div>
         <div className="flex items-center">
-        <Link to="/notificacao">
+        <Link to="/notificacoes">
         <FaBell className="text-white"  size={24} />
         </Link>
         <div className="absolute top-5 right-0 w-3 h-3 bg-red-500 rounded-full"></div>

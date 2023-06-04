@@ -1,22 +1,28 @@
 #conteudo2{
     margin-left: 18rem;
     
+    
 }
 
 #conteudo{
     margin-left: 10rem;
 }
 
-#notificacoes{
+#mensagens{
     margin-bottom: 2rem;
 }
- #alinhatitulonot{
+
+#alinhatitulocontatos{
     margin-left: 43%;
-} 
+}
+
 
 
 @media (max-width: 768px) {
     #conteudo{
         margin-left: 0rem;
     }
-  }   
+  }  
+  
+
+
