@@ -4,7 +4,7 @@ import {create} from "apisauce";
 
 const api = create({
     // baseURL: 'https://numero-notificacao.onrender.com',
-    baseURL: 'http://localhost:3001',
+    baseURL: 'http://localhost:3000',
 });
 
 api.addResponseTransform(response => {
