@@ -15,7 +15,6 @@ import 'react-toastify/dist/ReactToastify.css';
 // import Alert from '@mui/material/Alert';
 // import Stack from '@mui/material/Stack';
 
-
 function CadastroRo () {
   const { usuario } = useAuth();
   const [contrato, setContrato] = useState('');

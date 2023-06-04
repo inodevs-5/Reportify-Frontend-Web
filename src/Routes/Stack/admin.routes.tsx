@@ -6,7 +6,8 @@ import ListagemUsuario from '../../pages/Membro_suporte';
 import CadastroUsuario from '../../pages/CadastroUsuario';
 import EditarUsuario from '../../pages/EditarUsuario';
 import Contatos from '../../pages/Contatos';
-import Notificacao from '../../pages/Notificacoes';
+import Notificacoes from '../../pages/Notificacoes';
+import Chat from '../../pages/Chat';
 import Dashboard from '../../pages/Dashboard';
 import Backup from '../../pages/Backup';
 import EmailRedefinicao from '../../pages/EmailRedefinicao';
@@ -26,7 +27,8 @@ export default function Routas() {
         <Route path='/cadastroUsuarios' element={<CadastroUsuario/>}/>
         <Route path='/editar/:_id' element={<EditarUsuario/>}/>
         <Route path='/contatos' element={<Contatos/>}/>
-        <Route path='/notificacoes' element={<Notificacao/>}/>
+        <Route path='/notificacoes' element={<Notificacoes/>}/>
+        <Route path='/chat/:id' element={<Chat/>}/>
         <Route path='/dashboard' element={<Dashboard/>}/>
         <Route path='/forceBackup' element={<Backup/>}/>
         <Route path='/emailRedefinicao' element={<EmailRedefinicao/>}/>
