@@ -83,7 +83,7 @@ const sair = () => {
         <button className="bg-blue-800  m-auto flex ring-offset-0 font-medium ring ring-blue-900 
         justify-center p-1  items-center  w-3/6  text-white text-xl rounded-xl"
         onClick={sair}>
-           <p>sair</p> 
+           <p>Sair</p> 
         </button>
           </div>
       </ul>
@@ -128,7 +128,7 @@ const sair = () => {
         <div className="absolute pb-6 w-10/12 bottom-0 flex ">
         <button className="bg-blue-800  m-auto flex ring-offset-0 font-medium ring ring-blue-900 
         justify-center p-1  items-center  w-3/6  text-white text-xl rounded-xl">
-           <p>sair</p> 
+           <p>Sair</p> 
         </button>
           </div>
       </ul>

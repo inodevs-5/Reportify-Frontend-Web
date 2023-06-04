@@ -42,7 +42,7 @@ function ListagemUsuario() {
       <Menu></Menu>
       <div id="conteusdo" className="mt-16  bg-white flex-1 ">
       <div className="flex p-10 w-full items-center  flex-col">
-        <h1 className="text-3xl my-2 font-black">Listagem Usuarios</h1>
+        <h1 className="text-3xl my-2 font-black">Listagem Usuários</h1>
         { 
         usuarios && !loading ?(
                   
@@ -52,7 +52,7 @@ function ListagemUsuario() {
                   {/* <th className="border border-slate-700">ID</th> */}
                   <th className="border border-slate-700">Nome</th>
                   <th className="border border-slate-700">Perfil</th>
-                  <th className="border border-slate-700">empresa</th>
+                  <th className="border border-slate-700">Empresa</th>
                   <th className="border border-slate-700">Editar</th>
                 </tr>
               </thead>
