@@ -8,9 +8,11 @@ import CadastroUsuario from '../../pages/CadastroUsuario';
 import EditarUsuario from '../../pages/EditarUsuario';
 import Contatos from '../../pages/Contatos';
 import Notificacao from '../../pages/Notificacoes';
+import Dashboard from '../../pages/Dashboard';
 import Backup from '../../pages/Backup';
 import EmailRedefinicao from '../../pages/EmailRedefinicao';
 import RedefinirSenha from '../../pages/RedefinirSenha';
+
  
 
 export default function Routas() {
@@ -27,6 +29,7 @@ export default function Routas() {
         <Route path='/editar/:_id' element={<EditarUsuario/>}/>
         <Route path='/contatos' element={<Contatos/>}/>
         <Route path='/notificacao' element={<Notificacao/>}/>
+        <Route path='/dashboard' element={<Dashboard/>}/>
         <Route path='/forceBackup' element={<Backup/>}/>
         <Route path='/emailRedefinicao' element={<EmailRedefinicao/>}/>
         <Route path="/senha/:id/:firstTime" element={<RedefinirSenha />}/>
