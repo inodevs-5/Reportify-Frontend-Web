@@ -12,6 +12,7 @@ import Dashboard from '../../pages/Dashboard';
 import Backup from '../../pages/Backup';
 import EmailRedefinicao from '../../pages/EmailRedefinicao';
 import RedefinirSenha from '../../pages/RedefinirSenha';
+import EditaRos from '../../pages/EditarRo';
 
  
 
@@ -26,6 +27,7 @@ export default function Routas() {
         <Route path='/tabelaRo' element={<TabelaRo/>}/>
         <Route path='/membroSuporte' element={<ListagemUsuario/>}/>
         <Route path='/cadastroUsuarios' element={<CadastroUsuario/>}/>
+        <Route path='/editarRO/:_id' element={<EditaRos/>}/>
         <Route path='/editar/:_id' element={<EditarUsuario/>}/>
         <Route path='/contatos' element={<Contatos/>}/>
         <Route path='/notificacao' element={<Notificacao/>}/>
