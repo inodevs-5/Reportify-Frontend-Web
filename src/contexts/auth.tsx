@@ -39,9 +39,8 @@ export const AuthProvider = ({children}) => {
     }
 
     function signOut() {
-      localStorage.clear().then(() => {
-            setUsuario(null);
-        });
+        localStorage.clear()
+        setUsuario(null); 
     }
 
     return (
