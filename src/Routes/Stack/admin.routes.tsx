@@ -12,6 +12,7 @@ import Dashboard from '../../pages/Dashboard';
 import Backup from '../../pages/Backup';
 import EmailRedefinicao from '../../pages/EmailRedefinicao';
 import RedefinirSenha from '../../pages/RedefinirSenha';
+import Perfil from "../../pages/Perfil";
 import EditaRos from '../../pages/EditarRo';
 
  
@@ -35,6 +36,7 @@ export default function Routas() {
         <Route path='/forceBackup' element={<Backup/>}/>
         <Route path='/emailRedefinicao' element={<EmailRedefinicao/>}/>
         <Route path="/senha/:id/:firstTime" element={<RedefinirSenha />}/>
+        <Route path='/perfil' element={<Perfil/>}/>
     </Routes>
         )
 }
