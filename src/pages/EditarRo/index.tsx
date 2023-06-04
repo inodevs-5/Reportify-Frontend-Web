@@ -34,6 +34,7 @@ const EditaRos = () => {
     const [equipPosicao, setEquipPosicao] = useState('');
     const [partNumber, setPartNumber] = useState('');
     const [serialNumber, setSerialNumber] = useState('');
+    const [procedTecnicos , SetProcedTecnicos] = useState('')
     const [tituloOcorrencia, setTituloOcorrencia] = useState('');
     const [descricaoOcorrencia, setDescricaoOcorrencia] = useState('');
     const [nome, setNome] = useState('');
@@ -188,7 +189,7 @@ const EditaRos = () => {
             classificacao, 
             nome,
             outros, 
-            // procedTecnicos,
+            procedTecnicos,
             defeito,
             justificativaReclassificacao,
             validacaoFechamentoRo
