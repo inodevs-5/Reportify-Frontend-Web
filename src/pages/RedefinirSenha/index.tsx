@@ -1,56 +1,73 @@
 import { Link, useParams } from "react-router-dom";
-// import { useAuth } from "../../contexts/auth";
-import { FaEyeSlash, FaEye } from 'react-icons/fa';
 import "../../styles/global.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Loader from "../../components/loader";
 import { useAuth } from "../../contexts/auth";
 import { useNavigate } from "react-router-dom";
+import api from "../../services/api";
 
 
 function RedefinirSenha() {
     const { id, firstTime } = useParams();
 
+    const navigate = useNavigate();
+
     const [senha, setSenha] = useState('');
-    const [confirmarSenha, setConfimarSenha] = useState('')
+    const [confirmarSenha, setConfirmarSenha] = useState('')
     const [termo, setTermo] = useState(false);
+    const [termoInfo, setTermoInfo] = useState();
     const [loading, setLoading] = useState(false);
-    const [errorMessage, setErrorMessage] = useState(null);
+    const [errorMessage, setErrorMessage] = useState('');
     const [errorTermoMessage, setErrorTermoMessage] = useState('');
 
     const { signOut } = useAuth()
 
     const handleTermoCheck = () => {
         setTermo(!termo);
-    };
+      };
+    
+      useEffect(() => {
+        (async () => {
+          try {
+              const response = await api.get('/termo/');
 
-    const salvarSenha = async() => {
+              setTermoInfo(response.data)
+          } catch (response) {
+            setErrorMessage(response.data.msg);
+          }
+        })();
+      }, []);
+    
+      const salvarSenha = async() => {
         signOut()
         setErrorMessage('');
         setErrorTermoMessage('');
         setLoading(true);
-        try {
+          try {
             if (termo || firstTime === 'false') {
-            const response = await api.patch('/usuario/password/' + id, {senha, confirmarSenha});
+              if (firstTime === 'true') {
+                await api.post('/termo/accept', {usuario: id, versaoTermo: termoInfo._id});
+              }
+    
+              const response = await api.patch('/usuario/password/' + id, {senha, confirmarSenha});
 
-            Alert.alert(response.data.msg);
-            setSenha('')
-            setConfirmarSenha('')
-            navigation.navigate('Login');
+              setSenha('')
+              setConfirmarSenha('')
+              navigate('/', {state: {msg: response.data.msg}});
             } else {
-            setErrorTermoMessage('É necessário aceitar o termo.');
+              setErrorTermoMessage('É necessário aceitar o termo.');
             }
-        } catch (response) {
+          } catch (response) {
             setErrorMessage(response.data.msg);
-        }
+          }
         setLoading(false);
-    };
+      };
+    
 
     return (
         <div className="h-screen bg-gray-100 w-screen flex-col flex items-center">
-        {!!errorMessage && <h1 className="text-red-800 text-2xl">{errorMessage}</h1>}
-        <div className="w-2/3 h-4/5 flex justify-center items-center flex-col p-8">
-            <h1 className="text-blue-900  text-5xl font-black mb-4" >Reportify</h1>
+        <div className="w-2/3 h-4/5 flex justify-center items-center flex-col p-8 mt-12">
+            <h1 className="text-blue-900 text-5xl font-black mb-4" >Reportify</h1>
             <h2 className="mt-5 text-4xl text-center text-blue-900 font-bold mb-4">Redefinição de senha</h2>
             <h2 className="mb-4">Insira sua senha.</h2>
             {errorMessage && <p className="mb-5 text-red-600">{errorMessage}</p>}
@@ -70,18 +87,24 @@ function RedefinirSenha() {
                 type="password"
                 placeholder="Confirmar senha"
                 value={confirmarSenha}
-                onChange={(event) => setConfimarSenha(event.target.value)}
+                onChange={(event) => setConfirmarSenha(event.target.value)}
                 />
             </div>
+            {errorTermoMessage && <p className="text-red-600 text-center">{errorTermoMessage}</p>}
             {firstTime === 'true' && (
-                <div className="flex flex-row items-center">
+                <>
+                {
+                    termoInfo &&
+                    <div className="flex flex-row items-center">
                     <input className="mx-5" type="checkbox" checked={termo} onChange={handleTermoCheck}/>
                     <p>
                         <span>Estou ciente do&nbsp;</span>
-                        <Link to='https://docs.google.com/document/d/e/2PACX-1vS95FEPOWKp-Kp2GidnxjKPfdNse9LGssZFxurbmqgSw09eIIfwxXjvZUmzr0UwWLLt5XviUjmHXQE8/pub'><span className="text-blue-800 text-center">Termo de Compromisso do app.</span></Link>
+                        <a href={termoInfo.url} target="_blank"><span className="text-blue-800 text-center">Termo de Compromisso do app.</span></a><br />
+                        <span>{` (${termoInfo._id})`}</span>
                     </p>
-                    {errorTermoMessage && <p>{errorTermoMessage}</p>}
-                </div>
+                    </div>
+                }
+                </>
             )}
             <div className="flex flex-row items-center justify-around">
                 {

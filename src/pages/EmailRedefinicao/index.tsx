@@ -16,7 +16,7 @@ function emailRedefinicao() {
       try {
         const response = await api.post('/usuario/emailRedefinicao', { email });
 
-        navigate('/login')
+        navigate('/login', {state: {msg: response.data.msg}})
       } catch (response) {
         setErrorMessage(response.data.msg);
       }

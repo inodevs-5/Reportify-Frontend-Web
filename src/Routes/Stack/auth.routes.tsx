@@ -8,6 +8,8 @@ import CadastroUsuario from '../../pages/CadastroUsuario';
 import Contatos from '../../pages/Contatos';
 import Notificacao from '../../pages/Notificacoes';
 import Backup from '../../pages/Backup';
+import RedefinirSenha from '../../pages/RedefinirSenha';
+import EmailRedefinicao from '../../pages/EmailRedefinicao';
 
 
 export default function AdminRoutes() {
@@ -22,6 +24,8 @@ export default function AdminRoutes() {
         <Route path='/contatos' element={<Contatos/>}/>
         <Route path='/notificacao' element={<Notificacao/>}/>
         <Route path='/forceBackup' element={<Backup/>}/>
+        <Route path='/emailRedefinicao' element={<EmailRedefinicao/>}/>
+        <Route path="/senha/:id/:firstTime" element={<RedefinirSenha />}/>
     </Routes>
         )
 }

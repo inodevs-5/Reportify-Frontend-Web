@@ -14,7 +14,7 @@ export default function Rout () {
             <Route path='*' element={<Login/>}  />
             <Route path='/login' element={<Login/>} />
             <Route path="/" element={<Login />} />
-            <Route path="/redefinirSenha/:id/:firstTime" element={<RedefinirSenha />}/>
+            <Route path="/senha/:id/:firstTime" element={<RedefinirSenha />}/>
             <Route path="/emailRedefinicao" element={<EmailRedefinicao/>}/>
         </Routes>
     )
