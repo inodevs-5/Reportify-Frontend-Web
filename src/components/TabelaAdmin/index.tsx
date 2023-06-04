@@ -7,6 +7,7 @@ import { FaEdit } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
 import { SlClose } from "react-icons/sl";
 import { useAuth } from "../../contexts/auth";
+import { Link } from "react-router-dom";
 
 
 
@@ -202,9 +203,9 @@ useEffect(() => {
                   <td className="border border-slate-700 p-1 text-center ">{ro.relator.id ? ro.relator.id.nome.charAt(0).toUpperCase() + ro.relator.id.nome.slice(1) : "N/A"}</td>
                   <td className="border border-slate-700 p-1">
                     <div className="flex w-full items-center justify-center ">
-                      <button  className="curso-pointer p-2 ">
+                    <Link to={`/editarRO/${ro._id}`}>
                         <FaEdit size={24}/>
-                      </button>
+                      </Link>
                     </div>
                       </td>
                 </tr>
@@ -275,9 +276,9 @@ useEffect(() => {
         <td className="border border-slate-700 p-1 text-center ">{ro.responsavel ? ro.responsavel.nome.charAt(0).toUpperCase() + ro.responsavel.nome.slice(1) : "a"}</td>
         <td className="border border-slate-700 p-1">
           <div className="flex w-full items-center justify-center ">
-            <button  className="curso-pointer p-2 ">
-              <FaEdit size={24}/>
-            </button>
+          <Link to={`/editarRO/${ro._id}`}>
+                        <FaEdit size={24}/>
+                      </Link>
           </div>
             </td>
       </tr>
