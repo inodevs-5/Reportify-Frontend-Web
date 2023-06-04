@@ -35,7 +35,7 @@ function Contatos() {
   }, []);
 
   function handlePress(destinatario:string): void {
-    navigation('/Chat/' + destinatario)
+    navigation('/chat/' + destinatario)
   }
 
   function esperar () : void {
@@ -86,7 +86,7 @@ function Contatos() {
           <>
           {myRos && !loading ? myRos.map((ro) => (
           <div id = "mensagens" key={ro._id}>
-            <div className='flex flex-row' onClick={() => { ro.suporte  && ro.suporte.colaboradorIACIT.id ?  handlePress(ro.suporte.colaboradorIACIT.id._id) : esperar()}}>
+            <div className='flex flex-row cursor-pointer' onClick={() => { ro.suporte  && ro.suporte.colaboradorIACIT.id ?  handlePress(ro.suporte.colaboradorIACIT.id._id) : esperar()}}>
               <div>
                 <div className="bg-blue-700 px-5 py-3 rounded-full mr-2 mb-2">
                   <p className='font-bold text-white text-center'>{ro.suporte && ro.suporte.colaboradorIACIT.id ? ro.suporte.colaboradorIACIT.id.nome.charAt(0).toUpperCase() : "N"}</p>

@@ -26,7 +26,7 @@ export default function Routas() {
         <Route path='/editar/:_id' element={<EditarUsuario/>}/>
         <Route path='/contatos' element={<Contatos/>}/>
         <Route path='/notificacoes' element={<Notificacoes/>}/>
-        <Route path='/chat' element={<Chat/>}/>
+        <Route path='/chat/:id' element={<Chat/>}/>
     </Routes>
         )
 }
