@@ -24,7 +24,7 @@ function Menu() {
   }
 
     
-  const [mostrarNotificacao, setMostrarNotificacao] = useState('');
+  const [mostrarNotificacao, setMostrarNotificacao] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -89,8 +89,6 @@ function Menu() {
             <Link to="/perfil">
               <FaUser className="text-white"  size={24}/>
             </Link>
-            <div className="absolute top-4 right-9 w-4 h-4 bg-red-500 rounded-full"></div>
-          <div className="numero absolute right-10">{mostrarNotificacao}</div>
         </div>
       </div>
 
@@ -122,7 +120,7 @@ function Menu() {
         {usuario && usuario.perfil === 'admin' &&
         <>  
         <li className="py-3 rounded-xl text-center  mt-4 ring-1 hover:bg-secondary cursor-pointer ring-black-300 shadow-2xl">
-        <Link to="/forceBackup" className="text-gray-400 p-4 w-full hover:text-white px-16 ">Backup</Link>
+        <Link to="/forceBackup" className="text-gray-400 p-4 w-full hover:text-white px-16 ">Opções Extras</Link>
         </li>
         <li className="py-3 rounded-xl text-center  mt-4 ring-1 hover:bg-secondary cursor-pointer ring-black-300 shadow-2xl">
         <Link to="/dashboard" className="text-gray-400 p-4 w-full hover:text-white px-16 ">Relatório</Link>

@@ -385,13 +385,13 @@ const EditaRos = () => {
     </div>
     <div className="flex mb-4">
       <label htmlFor="Responsavel/supervisor do centro" className="block text-gray-700 font-bold w-1/4">
-        Responsavel/centro:
+        Responsável/centro:
       </label>
       <input 
       disabled
         type="text"
-        value={nomeResponsavel}
-        onChange={(event) => setNomeResponsavel(event.target.value)}
+        value={idcolaboradorIACIT}
+        onChange={(event) => setIdColaboradorIACIT(event.target.value)}
         id="Responsavel/supervisor do centro"
         className="border-b border-gray-400 focus:border-primary focus:outline-none px-2 py-0 flex-grow"
       />

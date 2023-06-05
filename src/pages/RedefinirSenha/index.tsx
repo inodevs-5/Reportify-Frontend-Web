@@ -31,6 +31,7 @@ function RedefinirSenha() {
           try {
               const response = await api.get('/termo/');
 
+              console.log(termoInfo)
               setTermoInfo(response.data)
           } catch (response) {
             setErrorMessage(response.data.msg);

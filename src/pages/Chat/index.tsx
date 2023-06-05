@@ -71,7 +71,7 @@ const Chat: React.FC = () => {
     <><div className="flex flex-wrap flex-row">
           <Menu></Menu>
           <div id="contesudo" className="mt-16  bg-white flex-1 ">
-              {destinatario && <div id='alinhatitulochat' className='font-bold text-center'><p >{destinatario.nome}</p></div>}
+              {destinatario && <div id='alinhatitulochat' className='font-bold text-center text-lg'><p >{destinatario.nome}</p></div>}
               <div className="p-10 flex flex-col">
                   <hr id="alinhahr"/>
                   {/* <h1 id="alinhatitulochat" >Chat</h1> */}
