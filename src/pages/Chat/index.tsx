@@ -97,13 +97,14 @@ const Chat: React.FC = () => {
           </div>
           <div className="input-container">
             <input
+              className='input-chat'
               type="text"
               placeholder="Digite sua mensagem..."
               value={inputText}
               onChange={handleInputChange}
               onKeyPress={handleKeyPress}
             />
-            <button onClick={handleSendMessage}>Enviar</button>
+            <button onClick={handleSendMessage} className='botao-chat'>Enviar</button>
          </div>
        </div>
       </div>

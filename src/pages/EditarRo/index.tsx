@@ -61,7 +61,7 @@ const EditaRos = () => {
     // const [usuarios, setUsuarios] = useState()
     const [idcolaboradorIACIT, setIdColaboradorIACIT] = useState()
     const [errorMessage, setErrorMessage] = useState()
-    const [usuarios,setUsuarioa] = useState([])
+    const [usuarios, setUsuarios] = useState([])
 
     const fases: Fase[] = [
         { label: 'Pendente', value: 'pendente' },
@@ -72,21 +72,21 @@ const EditaRos = () => {
       ];
       const defeitos: Fase[] = [
         { label: 'Critico', value: 'critico' },
-        { label: 'Alto', value: 'Alto' },
-        { label: 'Baixo', value: 'Baixo' },
+        { label: 'Alto', value: 'alto' },
+        { label: 'Baixo', value: 'baixo' },
       ];
       const classificacaoo: Fase[] = [
-        { label: 'Defeito', value: 'Defeito' },
-        { label: 'Melhoria', value: 'Melhoria' },
-        { label: 'Outros', value: 'Outros' },
+        { label: 'Defeito', value: 'defeito' },
+        { label: 'Melhoria', value: 'melhoria' },
+        { label: 'Outros', value: 'outros' },
       ];
       const melhorias: Fase[] = [
-        { label: 'Funcionalidade existente', value: 'Funcionalidadse existente' },
-        { label: 'Funcionalidade não existente', value: 'Funcionalidade não existente' },
+        { label: 'Funcionalidade existente', value: 'funcionalidade existente' },
+        { label: 'Funcionalidade não existente', value: 'funcionalidade nao existente' },
       ];
       const outross: Fase[] = [
-        { label: 'Investigação', value: 'Investigação' },
-        { label: 'Causa Externa', value: 'Causa Externa' },
+        { label: 'Investigação', value: 'investigacao' },
+        { label: 'Causa Externa', value: 'causa externa' },
       ];
       const Situacao: Fase[] = [
         { label: 'Aberto', value: 'Aberto' },
@@ -153,24 +153,52 @@ const EditaRos = () => {
             setLogsAnexado(response.data.opcoesSoftware.logsAnexado);
           }
           if (response.data.suporte) {
-            setFase(response.data.suporte.fase);
-            setDefeito(response.data.suporte.defeito);
-            setClassificacao(response.data.suporte.classificacao);
-            setCategoria(response.data.suporte.categoria);
-            setMelhoria(response.data.suporte.melhoria);
-            setOutros(response.data.suporte.outros);
-            setJustificativaReclassificacao(response.data.suporte.justificativaReclassificacao);
+            if(response.data.suporte.melhoria){
+              setMelhoria(response.data.suporte.melhoria);
+            }
+            if(response.data.suporte.outros){
+              setOutros(response.data.suporte.outros);
+            }
+            if(response.data.suporte.defeito){
+              setDefeito(response.data.suporte.defeito);
+            }
+            if(response.data.suporte.fase){
+              setFase(response.data.suporte.fase);
+            }
+            if(response.data.suporte.classificacao){
+              setClassificacao(response.data.suporte.classificacao);
+            }
+            if(response.data.suporte.categoria){
+              setCategoria(response.data.suporte.categoria);
+            }
+            if(response.data.suporte.defeito){
+              setJustificativaReclassificacao(response.data.suporte.justificativaReclassificacao);
+            }    
             if (response.data.suporte.colaboradorIACIT) {
               setNome(response.data.suporte.colaboradorIACIT.id.nome);
-              setIdColaboradorIACIT(response.data.suporte.colaboradorIACIT.id);
+              setIdColaboradorIACIT(response.data.suporte.colaboradorIACIT.id._id);
             }
           }
           
-          const response2 = await api.get('/usuario')
-          setUsuarioa(response2.data)
           setLoading(false)
         } catch (response) {
-           setErrorMessage(response.data ?  response.data.msg : "aaaaaaaa")
+           setErrorMessage(response.data)
+        }
+        setLoading(false)
+      })();
+          
+    },[] );
+
+    useEffect(() => {
+      (async () => {
+        try {
+
+
+        const response2 = await api.get('/usuario')
+          setUsuarios(response2.data)
+          console.log(response2.data)
+        } catch (response) {
+           setErrorMessage(response.data)
         }
         setLoading(false)
       })();
@@ -197,7 +225,7 @@ const EditaRos = () => {
           roni()
           console.log(categoria + fase + idcolaboradorIACIT + classificacao )
       }catch (response){
-        setErrorMessage(response.data ?  response.data.msg : "aaaaaaaa")
+        setErrorMessage(response.data)
       }
       setLoading(false);
 
@@ -570,7 +598,7 @@ const EditaRos = () => {
       ))}
     </select>
     </div>
-   { classificacao == "Defeito" &&
+   { classificacao == "defeito" &&
     <div className="flex mb-4">
     <label htmlFor="defeito" className="block text-gray-700 font-bold w-1/4">
         Defeito :
@@ -590,7 +618,7 @@ const EditaRos = () => {
       ))}
     </select>
     </div>}
-    { classificacao == "Melhoria" &&
+    { classificacao == "melhoria" &&
      <div className="flex mb-4">
     <label htmlFor="Melhoria" className="block text-gray-700 font-bold w-1/4">
         Melhoria :
@@ -609,7 +637,7 @@ const EditaRos = () => {
       ))}
     </select>
     </div>}
-    { classificacao == "Outros" &&
+    { classificacao == "outros" &&
     <div className="flex mb-4">
     <label htmlFor="outro" className="block text-gray-700 font-bold w-1/4">
         Outros :
@@ -654,7 +682,7 @@ const EditaRos = () => {
     Selecione
   </option>
       { usuarios && usuarios.map((relator) => (
-      <option key={relator.value} value={relator._id}>{relator.nome}</option>
+      <option key={relator._id} value={relator._id}>{relator.nome}</option>
       ))}
     </select>
     </div>
@@ -675,6 +703,7 @@ const EditaRos = () => {
         Validação :
       </label>
       <select
+      disabled={usuario.perfil === "cliente" ? false : true}
       name="validacao"
       className="border-b border-gray-400 focus:border-primary focus:outline-none px-2 py-0 flex-grow"
       onChange={e => setValidacaoFechamentoRo(e.target.value)}
