@@ -1,0 +1,23 @@
+#lado{
+    /* background-color: red; */
+    display:flex;
+}
+#bar{
+    display: none;
+}
+
+@media (max-width: 768px) {
+    #lado{
+        display: none;
+    }
+    #bar{
+        display: flex;
+    }
+  }
+
+.numero{
+    margin-bottom: 19px;
+    font-size: 15px;
+    color: white;
+    font-weight: bold;
+};
