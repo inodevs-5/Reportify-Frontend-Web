@@ -54,7 +54,7 @@ export default function Routas() {
             <Route path='/dashboard' element={<Dashboard/>}/>
             <Route path='/forceBackup' element={<Backup/>}/>
             <Route path='/emailRedefinicao' element={<EmailRedefinicao/>}/>
-            <Route path="/senha/:id/:firstTime" element={<RedefinirSenha />}/>
+            <Route path="/senha/:id/:firstTime/:token" element={<RedefinirSenha />}/>
             <Route path="/termo" element={<Termo />}/>
             <Route path='/perfil' element={<Perfil/>}/>
         </Routes>

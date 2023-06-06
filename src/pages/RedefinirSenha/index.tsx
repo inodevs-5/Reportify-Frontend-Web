@@ -8,7 +8,7 @@ import api from "../../services/api";
 
 
 function RedefinirSenha() {
-    const { id, firstTime } = useParams();
+    const { id, firstTime, token } = useParams();
 
     const navigate = useNavigate();
 
@@ -50,7 +50,7 @@ function RedefinirSenha() {
                 await api.post('/termo/accept', {usuario: id, versaoTermo: termoInfo._id});
               }
     
-              const response = await api.patch('/usuario/password/' + id, {senha, confirmarSenha});
+              const response = await api.patch('/usuario/password/' + id, {senha, confirmarSenha, token});
 
               setSenha('')
               setConfirmarSenha('')
