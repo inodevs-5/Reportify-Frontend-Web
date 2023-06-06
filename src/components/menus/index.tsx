@@ -117,11 +117,11 @@ function Menu() {
         <li className="py-3 rounded-xl text-center  mt-4 ring-1 hover:bg-secondary cursor-pointer ring-black-300 shadow-2xl">
         <Link to="/contatos" className="text-gray-400 p-4 hover:text-white px-16 ">Meus Chats</Link>
         </li>
-        {usuario && usuario.perfil === 'admin' &&
-        <>  
         <li className="py-3 rounded-xl text-center  mt-4 ring-1 hover:bg-secondary cursor-pointer ring-black-300 shadow-2xl">
         <Link to="/forceBackup" className="text-gray-400 p-4 w-full hover:text-white px-16 ">Opções Extras</Link>
         </li>
+        {usuario && usuario.perfil === 'admin' &&
+        <>  
         <li className="py-3 rounded-xl text-center  mt-4 ring-1 hover:bg-secondary cursor-pointer ring-black-300 shadow-2xl">
         <Link to="/dashboard" className="text-gray-400 p-4 w-full hover:text-white px-16 ">Relatório</Link>
         </li>

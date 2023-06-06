@@ -100,7 +100,7 @@ function RedefinirSenha() {
                     <input className="mx-5" type="checkbox" checked={termo} onChange={handleTermoCheck}/>
                     <p>
                         <span>Estou ciente do&nbsp;</span>
-                        <a href={termoInfo.url} target="_blank"><span className="text-blue-800 text-center">Termo de Compromisso do app.</span></a><br />
+                        <a href={termoInfo.url} target="_blank"><span className="text-blue-800 text-center">Termo de Compromisso.</span></a><br />
                         <span>{` (${termoInfo._id})`}</span>
                     </p>
                     </div>
