@@ -18,6 +18,7 @@ import { useAuth } from '../../contexts/auth';
 import { useEffect } from 'react';
 import api from '../../services/api';
 import Termo from '../../pages/Termo';
+import EditaRos from '../../pages/EditarRo';
 
 
 export default function AdminRoutes() {
@@ -41,13 +42,13 @@ export default function AdminRoutes() {
 
     return(
         <Routes>
-            <Route path="*" element={<Navigate to="/" />} />
+            <Route path="*" element={<TabelaRo/>} />
+            <Route path='/' element={<Navigate to="/tabelaRo" />}/>
             <Route path='/' element={<Home/>}/>
             <Route path='/CadastroRo' element={<CadastroRo/>}/>
             <Route path='/tabelaRo' element={<TabelaRo/>}/>
             {/* <Route path='/membroSuporte' element={<MembroSuporte/>}/> */}
-            <Route path='/cadastroUsuarios' element={<CadastroUsuario/>}/>
-            <Route path='/editarUsuarios' element={<EditarUsuario/>}/>
+            <Route path='/editarRO/:_id' element={<EditaRos/>}/>
             <Route path='/contatos' element={<Contatos/>}/>
             <Route path='/notificacoes' element={<Notificacoes/>}/>
             <Route path='/chat/:id' element={<Chat/>}/>

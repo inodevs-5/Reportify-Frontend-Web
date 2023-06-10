@@ -91,7 +91,7 @@ function ListagemUsuario() {
                   <td className="border border-slate-700 p-1">
                     <div className="flex w-full items-center justify-center ">
                       <Link to={`/editar/${usuario._id}`}>
-                        <FaEdit size={24}/>
+
                       </Link>
                     </div>
                       </td>

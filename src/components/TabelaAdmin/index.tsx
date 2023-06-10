@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import "../../styles/global.css";
-import "./tabela.css"
 import api from "../../services/api";
 import Loader_preto from "../loader/loaderpreto";
 import { FaEdit } from "react-icons/fa";
@@ -374,7 +373,9 @@ useEffect(() => {
                   <td className="border border-slate-700 p-1">
                     <div className="flex w-full items-center justify-center ">
                       <button  className="curso-pointer p-2 ">
+                      <Link to={`/editarRO/${ro._id}`}>
                         <FaEdit size={24}/>
+                      </Link>
                       </button>
                     </div>
                       </td>

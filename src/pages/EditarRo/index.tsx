@@ -390,8 +390,8 @@ const EditaRos = () => {
       <input 
       disabled
         type="text"
-        value={idcolaboradorIACIT}
-        onChange={(event) => setIdColaboradorIACIT(event.target.value)}
+        value={nomeResponsavel}
+        onChange={(event) => setNomeResponsavel(event.target.value)}
         id="Responsavel/supervisor do centro"
         className="border-b border-gray-400 focus:border-primary focus:outline-none px-2 py-0 flex-grow"
       />
@@ -677,6 +677,7 @@ const EditaRos = () => {
       className="border-b border-gray-400 focus:border-primary focus:outline-none px-2 py-0 flex-grow"
       onChange={e => setIdColaboradorIACIT(e.target.value)}
       id="responsavel"
+      value={idcolaboradorIACIT}
       >
     <option disabled selected>
     Selecione
@@ -730,6 +731,7 @@ const EditaRos = () => {
         value={justificativaFechamento}
         onChange={(event) => setJustificativaFechamento(event.target.value)}
         className="border-b border-gray-400 focus:border-primary focus:outline-none px-2 py-0 flex-grow"
+        disabled={usuario.perfil === "cliente" ? false : true}
       />
     </div>
     }
@@ -741,7 +743,7 @@ const EditaRos = () => {
         }
     {!loading ?
           (<button className="bg-blue-300 hover:bg-blue-400 hover:ring-blue-500 ring-offset-0 font-black ring ring-blue-400 outline-none  p-1 text-white text-xl w-3/6 rounded-xl cursor-pointer"
-            onClick={handelAtualizar}> Atualizar Ro </button>)
+            onClick={fase === "validacao" && usuario.perfil === "cliente" ? ValidarRo : handelAtualizar}> Atualizar Ro </button>)
             : (
             <div className="bg-blue-300 ring-offset-0 font-black ring ring-blue-400 flex justify-center p-1 items-center w-3/6 text-white text-xl rounded-xl">
               <Loader />
