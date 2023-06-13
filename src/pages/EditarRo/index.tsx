@@ -67,7 +67,7 @@ const EditaRos = () => {
         { label: 'Pendente', value: 'pendente' },
         { label: 'Em andamento', value: 'andamento' },
         { label: 'Aguardando validação', value: 'validacao' },
-        { label: 'Concluido', value: 'concluido' },
+        // { label: 'Concluido', value: 'concluido' },
       
       ];
       const defeitos: Fase[] = [
@@ -570,6 +570,7 @@ const EditaRos = () => {
       onChange={e => setFase(e.target.value)}
       id="fase"
       value={fase}
+      disabled={(ro.suporte && ro.suporte.fase === 'concluido') || usuario.perfil === 'cliente' ? true : false}
       >
     <option disabled selected>
     {fase}
@@ -589,6 +590,7 @@ const EditaRos = () => {
       className="border-b border-gray-400 focus:border-primary focus:outline-none px-2 py-0 flex-grow"
       onChange={e => setClassificacao(e.target.value)}
       id="classicao"
+      disabled={(ro.suporte && ro.suporte.fase === 'concluido') || usuario.perfil === 'cliente' ? true : false}
       >
     <option disabled selected>
     {classificacao}
@@ -608,7 +610,7 @@ const EditaRos = () => {
       className="border-b border-gray-400 focus:border-primary focus:outline-none px-2 py-0 flex-grow"
       onChange={e => setDefeito(e.target.value)}
       id="defeito"
-      
+      disabled={(ro.suporte && ro.suporte.fase === 'concluido') || usuario.perfil === 'cliente' ? true : false}
       >
     <option disabled selected>
     {defeito}
@@ -628,6 +630,7 @@ const EditaRos = () => {
       className="border-b border-gray-400 focus:border-primary focus:outline-none px-2 py-0 flex-grow"
       onChange={e => setMelhoria(e.target.value)}
       id="Melhoria"
+      disabled={(ro.suporte && ro.suporte.fase === 'concluido') || usuario.perfil === 'cliente' ? true : false}
       >
     <option disabled selected>
     {melhoria}
@@ -647,6 +650,7 @@ const EditaRos = () => {
       className="border-b border-gray-400 focus:border-primary focus:outline-none px-2 py-0 flex-grow"
       onChange={e => setOutros(e.target.value)}
       id="outro"
+      disabled={(ro.suporte && ro.suporte.fase === 'concluido') || usuario.perfil === 'cliente' ? true : false}
       >
     <option disabled selected>
     {outros}
@@ -666,6 +670,7 @@ const EditaRos = () => {
         value={categoria}
         onChange={(event) => setCategoria(event.target.value)}
         className="border-b border-gray-400 focus:border-primary focus:outline-none px-2 py-0 flex-grow"
+        disabled={(ro.suporte && ro.suporte.fase === 'concluido') || usuario.perfil === 'cliente' ? true : false}
       />
     </div>
     <div className="flex mb-4">
@@ -678,6 +683,7 @@ const EditaRos = () => {
       onChange={e => setIdColaboradorIACIT(e.target.value)}
       id="responsavel"
       value={idcolaboradorIACIT}
+      disabled={(ro.suporte && ro.suporte.fase === 'concluido') || usuario.perfil === 'cliente' ? true : false}
       >
     <option disabled selected>
     Selecione
@@ -697,6 +703,7 @@ const EditaRos = () => {
         value={justificativaReclassificacao}
         onChange={(event) => setJustificativaReclassificacao(event.target.value)}
         className="border-b border-gray-400 focus:border-primary focus:outline-none px-2 py-0 flex-grow"
+        disabled={(ro.suporte && ro.suporte.fase === 'concluido') || usuario.perfil === 'cliente' ? true : false}
       />
     </div>
     <div className="flex mb-4">
@@ -704,8 +711,9 @@ const EditaRos = () => {
         Validação :
       </label>
       <select
-      disabled={usuario.perfil === "cliente" ? false : true}
+      disabled={(ro.suporte && ro.suporte.fase === 'concluido') || usuario.perfil === "admin" ? true : false}
       name="validacao"
+      value={validacaoFechamentoRo}
       className="border-b border-gray-400 focus:border-primary focus:outline-none px-2 py-0 flex-grow"
       onChange={e => setValidacaoFechamentoRo(e.target.value)}
       id="validacao"
@@ -743,7 +751,7 @@ const EditaRos = () => {
         }
     {!loading ?
           (<button className="bg-blue-300 hover:bg-blue-400 hover:ring-blue-500 ring-offset-0 font-black ring ring-blue-400 outline-none  p-1 text-white text-xl w-3/6 rounded-xl cursor-pointer"
-            onClick={fase === "validacao" && usuario.perfil === "cliente" ? ValidarRo : handelAtualizar}> Atualizar Ro </button>)
+            onClick={usuario.perfil === "cliente" ? ValidarRo : handelAtualizar}> Atualizar Ro </button>)
             : (
             <div className="bg-blue-300 ring-offset-0 font-black ring ring-blue-400 flex justify-center p-1 items-center w-3/6 text-white text-xl rounded-xl">
               <Loader />
